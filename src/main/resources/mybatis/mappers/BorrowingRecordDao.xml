@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yindan.bookstore.dao.BorrowingRecordDao">
+  <resultMap id="BaseResultMap" type="com.yindan.bookstore.entity.BorrowingRecordEntity">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="book_id" jdbcType="BIGINT" property="bookId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="borrow_date" jdbcType="DATE" property="borrowDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="return_date" jdbcType="DATE" property="returnDate" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, book_id, user_id, borrow_date, due_date, return_date, status, created_at, updated_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from borrowing_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from borrowing_record
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yindan.bookstore.entity.BorrowingRecordEntity">
+    insert into borrowing_record (id, book_id, user_id, 
+      borrow_date, due_date, return_date, 
+      status, created_at, updated_at
+      )
+    values (#{id,jdbcType=BIGINT}, #{bookId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{borrowDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, #{returnDate,jdbcType=DATE}, 
+      #{status,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.yindan.bookstore.entity.BorrowingRecordEntity">
+    update borrowing_record
+    set book_id = #{bookId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      borrow_date = #{borrowDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      return_date = #{returnDate,jdbcType=DATE},
+      status = #{status,jdbcType=VARCHAR},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

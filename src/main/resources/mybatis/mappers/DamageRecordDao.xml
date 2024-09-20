@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yindan.bookstore.dao.DamageRecordDao">
+  <resultMap id="BaseResultMap" type="com.yindan.bookstore.entity.DamageRecordEntity">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="book_id" jdbcType="BIGINT" property="bookId" />
+    <result column="damage_level" jdbcType="VARCHAR" property="damageLevel" />
+    <result column="discount" jdbcType="DECIMAL" property="discount" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, book_id, damage_level, discount, created_at, updated_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from damage_record
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from damage_record
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.yindan.bookstore.entity.DamageRecordEntity">
+    insert into damage_record (id, book_id, damage_level, 
+      discount, created_at, updated_at
+      )
+    values (#{id,jdbcType=BIGINT}, #{bookId,jdbcType=BIGINT}, #{damageLevel,jdbcType=VARCHAR}, 
+      #{discount,jdbcType=DECIMAL}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.yindan.bookstore.entity.DamageRecordEntity">
+    update damage_record
+    set book_id = #{bookId,jdbcType=BIGINT},
+      damage_level = #{damageLevel,jdbcType=VARCHAR},
+      discount = #{discount,jdbcType=DECIMAL},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
