@@ -90,7 +90,7 @@ public class BorrowingServiceImpl implements BorrowingService {
                     borrowingEntity.setCreatedAt(new Date());
                     borrowingEntity.setUpdatedAt(new Date());
                     borrowingEntity.setNumbers(1);
-                    borrowingEntity.setDamageLevel(10);
+                    borrowingEntity.setDamageLevel(9);
                     borrowingEntity.setStatus(BorrowingStatus.BORROWING.getDisplayName());
 
                     //借阅表中插入数据

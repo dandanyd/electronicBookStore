@@ -30,7 +30,7 @@ public class BorrowingServiceTest {
     public void testBorrowingUpdate(){
         // 更新记录
         Long bookId = Long.valueOf(3);
-        Long userId = Long.valueOf(1);
+        Long userId = Long.valueOf(2);
         Integer damageLevel = 9;
         borrowingService.updateBorrowing(bookId,userId,damageLevel);
     }

@@ -3,7 +3,8 @@ package com.yindan.bookstore.constant;
 public enum BorrowingStatus{
 
         BORROWING("借阅中"),
-        RETURNED("已归还");
+        RETURNED("已归还"),
+        SELLOFF("已售出");
 
         private final String displayName;
 

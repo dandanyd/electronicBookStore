@@ -90,8 +90,8 @@
         t1.price,
         t1.cover_image coverImage,
 		t1.stock ,
-		( SELECT count( 1 ) FROM borrowing t WHERE t.book_id = t1.id ) stock_borrowing,
-        t1.stock + ( SELECT count( 1 ) FROM borrowing t WHERE t.book_id = t1.id ) stock_sum
+		( SELECT count( 1 ) FROM borrowing t WHERE t.book_id = t1.id and t.status != '已售出') stock_borrowing,
+        t1.stock + ( SELECT count( 1 ) FROM borrowing t WHERE t.book_id = t1.id and t.status != '已售出') stock_sum
     FROM
         book t1
   </select>
