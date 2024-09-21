@@ -1,5 +1,6 @@
 package com.yindan.bookstore.test;
 
+import com.yindan.bookstore.dto.BookDto;
 import com.yindan.bookstore.entity.BookEntity;
 import com.yindan.bookstore.service.BookService;
 import org.junit.jupiter.api.Test;
@@ -16,19 +17,20 @@ public class BookServiceTest {
     @Autowired
     private BookService bookService;
 
+    //录入书籍
     @Test
     public void testBookOperationsInsert() {
          //插入一条记录
         BookEntity newBook = new BookEntity();
-        newBook.setTitle("To Kill a Mockingbird2");
-        newBook.setAuthor("Harper Lee2");
-        newBook.setIsbn("1780061947235");
-        newBook.setCategory("Fiction1");
-        newBook.setPrice(new BigDecimal("12.99"));
-        newBook.setStock(20);
+        newBook.setTitle("是多福多寿");
+        newBook.setAuthor("钩子");
+        newBook.setIsbn("5780061947233");
+        newBook.setCategory("科学");
+        newBook.setPrice(new BigDecimal("15.99"));
+        newBook.setStock(10);
         newBook.setCoverImage("1https://example.com/to-kill-a-mockingbird.jpg");
 
-        bookService.addBook(newBook);
+        bookService.saveBooks(newBook);
     }
 
     @Test
@@ -42,6 +44,12 @@ public class BookServiceTest {
     public void testBookOperationsQueryAll(){
         // 查询所有记录
         List<BookEntity> books = bookService.searchBooks(null,null,null);
+        System.out.println(books);
+    }
+    @Test
+    public void testBookOperationsAll(){
+        // 查询所有记录
+        List<BookDto> books = bookService.selectAllBooks();
         System.out.println(books);
     }
     @Test

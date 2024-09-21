@@ -6,4 +6,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class SalesRecordServiceImpl implements SalesRecordService {
 
+    @Override
+    public int salesBook() {
+        return 0;
+    }
 }

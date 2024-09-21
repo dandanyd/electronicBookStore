@@ -11,5 +11,6 @@ public interface BorrowingRecordDao {
 
     BorrowingRecordEntity selectByPrimaryKey(Long id);
 
-    int updateByPrimaryKey(BorrowingRecordEntity record);
+    int updateByPrimaryKeySelective(BorrowingRecordEntity record);
+
 }

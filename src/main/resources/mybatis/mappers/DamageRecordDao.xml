@@ -32,11 +32,23 @@
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.yindan.bookstore.entity.DamageRecordEntity">
     update damage_record
-    set book_id = #{bookId,jdbcType=BIGINT},
-      damage_level = #{damageLevel,jdbcType=VARCHAR},
-      discount = #{discount,jdbcType=DECIMAL},
-      created_at = #{createdAt,jdbcType=TIMESTAMP},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    <set>
+      <if test="bookId != null">
+        book_id = #{bookId,jdbcType=BIGINT},
+      </if>
+      <if test="damageLevel != null">
+        damage_level = #{damageLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="discount != null">
+        discount = #{discount,jdbcType=DECIMAL},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

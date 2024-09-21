@@ -13,6 +13,10 @@
     <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
+  <resultMap id="DtoResultMap" type="com.yindan.bookstore.dto.BookDto">
+    <result column="stock_borrowing" jdbcType="INTEGER" property="stockBorrowing" />
+    <result column="stock_sum" jdbcType="INTEGER" property="stockSum" />
+  </resultMap>
   <sql id="Base_Column_List">
     id, title, author, isbn, category, price, stock, cover_image, created_at, updated_at
   </sql>
@@ -21,6 +25,12 @@
     <include refid="Base_Column_List" />
     from book
     where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectByIsbn" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from book
+    where isbn = #{isbn,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from book
@@ -38,19 +48,55 @@
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.yindan.bookstore.entity.BookEntity">
     update book
-    set title = #{title,jdbcType=VARCHAR},
-      author = #{author,jdbcType=VARCHAR},
-      isbn = #{isbn,jdbcType=VARCHAR},
-      category = #{category,jdbcType=VARCHAR},
-      price = #{price,jdbcType=DECIMAL},
-      stock = #{stock,jdbcType=INTEGER},
-      cover_image = #{coverImage,jdbcType=VARCHAR},
-      created_at = #{createdAt,jdbcType=TIMESTAMP},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="isbn != null">
+        isbn = #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="stock != null">
+        stock = #{stock,jdbcType=INTEGER},
+      </if>
+      <if test="coverImage != null">
+        cover_image = #{coverImage,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
 
-  <select id="selectByCondition" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="selectAllBooks" resultMap="DtoResultMap">
+        SELECT
+        t1.id,
+        t1.title,
+        t1.author,
+        t1.isbn,
+        t1.category,
+        t1.price,
+        t1.cover_image coverImage,
+		t1.stock ,
+		( SELECT count( 1 ) FROM borrowing t WHERE t.book_id = t1.id ) stock_borrowing,
+        t1.stock + ( SELECT count( 1 ) FROM borrowing t WHERE t.book_id = t1.id ) stock_sum
+    FROM
+        book t1
+  </select>
+
+  <select id="selectByCondition" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from book

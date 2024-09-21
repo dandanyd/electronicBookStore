@@ -2,10 +2,8 @@ package com.yindan.bookstore.entity;
 
 import java.util.Date;
 
-public class BorrowingRecordEntity {
+public class BorrowingEntity {
     private Long id;
-
-    private Long borrowingId;
 
     private Long bookId;
 
@@ -23,20 +21,16 @@ public class BorrowingRecordEntity {
 
     private Date updatedAt;
 
+    private Integer numbers;
+
+    private Integer damageLevel;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getBorrowingId() {
-        return borrowingId;
-    }
-
-    public void setBorrowingId(Long borrowingId) {
-        this.borrowingId = borrowingId;
     }
 
     public Long getBookId() {
@@ -101,5 +95,21 @@ public class BorrowingRecordEntity {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Integer getNumbers() {
+        return numbers;
+    }
+
+    public void setNumbers(Integer numbers) {
+        this.numbers = numbers;
+    }
+
+    public Integer getDamageLevel() {
+        return damageLevel;
+    }
+
+    public void setDamageLevel(Integer damageLevel) {
+        this.damageLevel = damageLevel;
     }
 }

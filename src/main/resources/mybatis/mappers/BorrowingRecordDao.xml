@@ -3,6 +3,7 @@
 <mapper namespace="com.yindan.bookstore.dao.BorrowingRecordDao">
   <resultMap id="BaseResultMap" type="com.yindan.bookstore.entity.BorrowingRecordEntity">
     <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="borrowing_id" jdbcType="BIGINT" property="borrowingId" />
     <result column="book_id" jdbcType="BIGINT" property="bookId" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="borrow_date" jdbcType="DATE" property="borrowDate" />
@@ -13,7 +14,8 @@
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, book_id, user_id, borrow_date, due_date, return_date, status, created_at, updated_at
+    id, borrowing_id, book_id, user_id, borrow_date, due_date, return_date, status, created_at, 
+    updated_at
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -26,25 +28,46 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.yindan.bookstore.entity.BorrowingRecordEntity">
-    insert into borrowing_record (id, book_id, user_id, 
-      borrow_date, due_date, return_date, 
-      status, created_at, updated_at
-      )
-    values (#{id,jdbcType=BIGINT}, #{bookId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
-      #{borrowDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, #{returnDate,jdbcType=DATE}, 
-      #{status,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}
-      )
+    insert into borrowing_record (id, borrowing_id, book_id, 
+      user_id, borrow_date, due_date, 
+      return_date, status, created_at, 
+      updated_at)
+    values (#{id,jdbcType=BIGINT}, #{borrowingId,jdbcType=BIGINT}, #{bookId,jdbcType=BIGINT}, 
+      #{userId,jdbcType=BIGINT}, #{borrowDate,jdbcType=DATE}, #{dueDate,jdbcType=DATE}, 
+      #{returnDate,jdbcType=DATE}, #{status,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.yindan.bookstore.entity.BorrowingRecordEntity">
+  <update id="updateByPrimaryKeySelective" parameterType="com.yindan.bookstore.entity.BorrowingRecordEntity">
     update borrowing_record
-    set book_id = #{bookId,jdbcType=BIGINT},
-      user_id = #{userId,jdbcType=BIGINT},
-      borrow_date = #{borrowDate,jdbcType=DATE},
-      due_date = #{dueDate,jdbcType=DATE},
-      return_date = #{returnDate,jdbcType=DATE},
-      status = #{status,jdbcType=VARCHAR},
-      created_at = #{createdAt,jdbcType=TIMESTAMP},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    <set>
+      <if test="borrowingId != null">
+        borrowing_id = #{borrowingId,jdbcType=BIGINT},
+      </if>
+      <if test="bookId != null">
+        book_id = #{bookId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="borrowDate != null">
+        borrow_date = #{borrowDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="returnDate != null">
+        return_date = #{returnDate,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
