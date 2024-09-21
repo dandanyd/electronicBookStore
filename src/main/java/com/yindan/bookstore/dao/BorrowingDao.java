@@ -1,5 +1,7 @@
 package com.yindan.bookstore.dao;
 
+import com.yindan.bookstore.dto.ReportDetailsDto;
+import com.yindan.bookstore.dto.ReportDto;
 import com.yindan.bookstore.entity.BorrowingEntity;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -23,6 +25,10 @@ public interface BorrowingDao {
     int selUserBorrowing(@Param("bookId") Long bookId, @Param("userId") Long userId, @Param("status") String status);
 
     List<BorrowingEntity> selBorrowingBooks(@Param("bookId") Long bookId, @Param("status") String status);
+
+    List<ReportDto> getReports();
+
+    List<ReportDetailsDto> getReportDetails();
 
 
 }

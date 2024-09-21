@@ -1,5 +1,6 @@
 package com.yindan.bookstore.test;
 
+import com.yindan.bookstore.service.ReportBorrowSaleService;
 import com.yindan.bookstore.service.SalesRecordService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ public class SalesRecordServiceTest {
 
     @Autowired
     private SalesRecordService salesRecordService;
+
+    @Autowired
+    private ReportBorrowSaleService reportBorrowSaleService;
 
     //销售书籍
     @Test
@@ -36,6 +40,13 @@ public class SalesRecordServiceTest {
         BigDecimal divide = totalPrice.divide(BigDecimal.valueOf(10), 2, BigDecimal.ROUND_HALF_UP);
         System.out.println("总价："+divide);
     }
+
+    @Test
+    public void testReport(){
+        reportBorrowSaleService.reportData();
+    }
+
+
 
 
 }

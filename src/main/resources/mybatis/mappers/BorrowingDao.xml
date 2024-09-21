@@ -103,5 +103,83 @@
     order by numbers desc
   </select>
 
+  <select id="getReports" resultType="com.yindan.bookstore.dto.ReportDto">
+    SELECT
+    type,
+    category,
+    count( quantity ) quantity
+    FROM
+    (
+    SELECT
+    '借阅' type,
+    t1.book_id,
+    t2.category,
+    1 quantity
+    FROM
+    borrowing t1
+    LEFT JOIN book t2 ON t1.book_id = t2.id
+    WHERE
+    t1.borrow_date <![CDATA[ <= ]]> CURDATE( )
+    AND t1.STATUS = '借阅中' UNION ALL
+    SELECT
+    '销售' type,
+    t1.book_id,
+    t2.category,
+    t1.quantity
+    FROM
+    sales_record t1
+    LEFT JOIN book t2 ON t1.book_id = t2.id
+    WHERE
+    sale_date = CURDATE( )
+    ) t
+    GROUP BY
+    t.type,
+    t.category
+  </select>
+
+  <select id="getReportDetails" resultType="com.yindan.bookstore.dto.ReportDetailsDto">
+    SELECT
+    '借阅' type,
+    t1.book_id bookId,
+    t2.title,
+    t2.author,
+    t2.isbn,
+    t1.borrow_date borrowSaleDate,
+    t1.due_date dueDate,
+    DATEDIFF( t1.due_date, CURDATE( ) ) diffDate,
+    CASE
+    WHEN DATEDIFF( t1.due_date, CURDATE( ) ) <![CDATA[ <= ]]> 2 THEN
+    0 ELSE 1
+    END AS dateFlag,
+    t3.username,
+    t3.phone_number phoneNumber
+    FROM
+    borrowing t1
+    LEFT JOIN book t2 ON t1.book_id = t2.id
+    LEFT JOIN users t3 ON t1.user_id = t3.id
+    WHERE
+    t1.borrow_date <![CDATA[ <= ]]> CURDATE( )
+    AND t1.STATUS = '借阅中'
+    UNION ALL
+    SELECT
+    '销售' type,
+    t1.book_id bookId,
+    t2.title,
+    t2.author,
+    t2.isbn,
+    t1.sale_date borrowSaleDate,
+    null dueDate,
+    null diffDate,
+	1 dateFlag,
+    t3.username,
+    t3.phone_number phoneNumber
+    FROM
+    sales_record t1
+    LEFT JOIN book t2 ON t1.book_id = t2.id
+    LEFT JOIN users t3 ON t1.user_id = t3.id
+    WHERE
+    sale_date = CURDATE( )
+  </select>
+
 
 </mapper>
