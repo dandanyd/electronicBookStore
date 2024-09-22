@@ -10,6 +10,7 @@ public class SftpConnectionManager {
     private static volatile SftpConnectionManager instance;
     //使用jsch
     private ChannelSftp sftpChannel;
+
     private Session session;
 
     //Sftp信息

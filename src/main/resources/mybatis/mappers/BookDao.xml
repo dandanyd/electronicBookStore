@@ -101,13 +101,13 @@
     <include refid="Base_Column_List" />
     from book
     <where>
-      <if test="title != null">
+      <if test="title != null and title.trim() != ''">
          and title like concat('%',#{title,jdbcType=VARCHAR},'%')
       </if>
-      <if test="author != null">
+      <if test="author != null and author.trim() != ''">
          and author like concat('%',#{author,jdbcType=VARCHAR},'%')
       </if>
-      <if test="category != null">
+      <if test="category != null and category.trim() != ''">
          and category = #{category,jdbcType=VARCHAR}
       </if>
     </where>
