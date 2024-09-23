@@ -43,15 +43,10 @@ public class BookServiceTest {
     @Test
     public void testBookOperationsQueryAll(){
         // 查询所有记录
-        List<BookEntity> books = bookService.searchBooks(null,null,null);
+        List<BookDto> books = bookService.searchBooks(null,null,null);
         System.out.println(books);
     }
-    @Test
-    public void testBookOperationsAll(){
-        // 查询所有记录
-        List<BookDto> books = bookService.selectAllBooks();
-        System.out.println(books);
-    }
+
     @Test
     public void testBookOperationsQueryOne(){
         // 查询所有单条记录

@@ -1,0 +1,272 @@
+2024-09-23 15:45:00,414 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8473 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 15:45:00,418 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 15:45:00,478 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 15:45:00,478 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 15:45:01,309 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 15:45:01,315 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 15:45:01,316 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 15:45:01,316 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 15:45:01,358 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 15:45:01,358 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 879 ms
+2024-09-23 15:45:02,027 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 15:45:02,083 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 15:45:02,265 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 15:45:02,277 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 15:45:02,307 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 15:45:02,319 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.176 seconds (JVM running for 2.906)
+2024-09-23 16:04:55,669 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:04:59,896 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8567 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 16:04:59,899 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 16:04:59,947 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 16:04:59,948 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 16:05:00,784 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 16:05:00,790 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:05:00,791 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 16:05:00,791 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 16:05:00,841 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 16:05:00,841 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 892 ms
+2024-09-23 16:05:01,610 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:05:01,681 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 16:05:01,919 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 16:05:01,935 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:05:01,973 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 16:05:01,985 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.427 seconds (JVM running for 3.141)
+2024-09-23 16:05:46,169 INFO [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 16:05:46,169 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-23 16:05:46,174 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 5 ms
+2024-09-23 16:09:26,418 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:09:29,913 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8586 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 16:09:29,916 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 16:09:29,953 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 16:09:29,953 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 16:09:30,782 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 16:09:30,788 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:09:30,788 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 16:09:30,788 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 16:09:30,831 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 16:09:30,831 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 877 ms
+2024-09-23 16:09:31,566 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:09:31,639 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 16:09:31,857 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 16:09:31,872 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:09:31,903 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 16:09:31,912 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.24 seconds (JVM running for 2.953)
+2024-09-23 16:16:58,126 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:17:02,031 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8632 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 16:17:02,034 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 16:17:02,083 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 16:17:02,084 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 16:17:02,912 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 16:17:02,920 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:17:02,920 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 16:17:02,921 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 16:17:02,975 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 16:17:02,976 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 892 ms
+2024-09-23 16:17:03,647 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:17:03,706 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 16:17:03,888 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 16:17:03,900 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:17:03,931 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 16:17:03,941 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.195 seconds (JVM running for 2.958)
+2024-09-23 16:17:18,975 INFO [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 16:17:18,975 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-23 16:17:18,979 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 4 ms
+2024-09-23 16:17:19,498 INFO [http-nio-9090-exec-5] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2024-09-23 16:17:19,593 INFO [http-nio-9090-exec-5] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2024-09-23 16:26:26,914 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:26:26,916 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2024-09-23 16:26:26,924 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2024-09-23 16:26:30,775 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8677 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 16:26:30,778 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 16:26:30,823 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 16:26:30,824 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 16:26:31,793 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 16:26:31,799 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:26:31,800 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 16:26:31,800 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 16:26:31,843 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 16:26:31,844 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 1019 ms
+2024-09-23 16:26:32,624 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:26:32,699 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 16:26:32,906 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 16:26:32,920 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:26:32,951 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 16:26:32,961 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.48 seconds (JVM running for 3.12)
+2024-09-23 16:26:52,006 INFO [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 16:26:52,007 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-23 16:26:52,011 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 4 ms
+2024-09-23 16:26:52,221 INFO [http-nio-9090-exec-3] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2024-09-23 16:26:52,333 INFO [http-nio-9090-exec-3] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2024-09-23 16:31:45,291 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:31:45,294 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2024-09-23 16:31:45,302 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2024-09-23 16:31:47,554 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8708 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 16:31:47,557 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 16:31:47,602 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 16:31:47,602 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 16:31:48,465 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 16:31:48,473 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:31:48,474 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 16:31:48,474 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 16:31:48,527 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 16:31:48,527 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 924 ms
+2024-09-23 16:31:49,261 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:31:49,318 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 16:31:49,518 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 16:31:49,532 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:31:49,563 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 16:31:49,574 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.317 seconds (JVM running for 3.152)
+2024-09-23 16:32:21,536 INFO [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 16:32:21,536 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-23 16:32:21,541 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 5 ms
+2024-09-23 16:32:21,840 INFO [http-nio-9090-exec-5] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2024-09-23 16:32:21,961 INFO [http-nio-9090-exec-5] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2024-09-23 16:36:54,294 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:36:54,296 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2024-09-23 16:36:54,305 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2024-09-23 16:36:56,643 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8737 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 16:36:56,646 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 16:36:56,700 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 16:36:56,700 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 16:36:57,569 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 16:36:57,575 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:36:57,575 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 16:36:57,575 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 16:36:57,617 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 16:36:57,618 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 916 ms
+2024-09-23 16:36:58,304 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:36:58,360 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 16:36:58,560 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 16:36:58,571 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:36:58,598 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 16:36:58,607 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.297 seconds (JVM running for 3.191)
+2024-09-23 16:37:09,915 INFO [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 16:37:09,916 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-23 16:37:09,920 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 4 ms
+2024-09-23 16:37:10,232 INFO [http-nio-9090-exec-7] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2024-09-23 16:37:10,344 INFO [http-nio-9090-exec-7] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2024-09-23 16:46:43,820 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:46:43,823 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2024-09-23 16:46:43,829 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2024-09-23 16:46:47,396 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8802 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 16:46:47,399 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 16:46:47,438 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 16:46:47,438 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 16:46:48,190 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 16:46:48,196 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:46:48,196 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 16:46:48,197 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 16:46:48,239 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 16:46:48,240 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 801 ms
+2024-09-23 16:46:48,875 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:46:48,933 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 16:46:49,125 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 16:46:49,137 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:46:49,164 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 16:46:49,174 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.021 seconds (JVM running for 2.641)
+2024-09-23 16:47:06,076 INFO [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 16:47:06,076 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-23 16:47:06,081 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 5 ms
+2024-09-23 16:47:06,370 WARN [http-nio-9090-exec-3] o.s.w.s.m.s.DefaultHandlerExceptionResolver [AbstractHandlerExceptionResolver.java:199] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2024-09-23 16:47:06,443 INFO [http-nio-9090-exec-8] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2024-09-23 16:47:06,578 INFO [http-nio-9090-exec-8] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2024-09-23 16:48:06,164 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:48:06,167 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2024-09-23 16:48:06,176 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2024-09-23 16:48:09,581 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8819 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 16:48:09,584 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 16:48:09,639 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 16:48:09,640 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 16:48:10,408 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 16:48:10,414 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:48:10,415 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 16:48:10,415 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 16:48:10,457 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 16:48:10,457 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 817 ms
+2024-09-23 16:48:11,106 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:48:11,162 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 16:48:11,343 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 16:48:11,354 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:48:11,386 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 16:48:11,395 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.06 seconds (JVM running for 2.647)
+2024-09-23 16:48:13,544 INFO [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 16:48:13,544 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-23 16:48:13,549 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 5 ms
+2024-09-23 16:48:15,425 INFO [http-nio-9090-exec-9] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2024-09-23 16:48:15,564 INFO [http-nio-9090-exec-9] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2024-09-23 16:59:26,014 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:59:26,016 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2024-09-23 16:59:26,021 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2024-09-23 16:59:29,798 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8870 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 16:59:29,801 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 16:59:29,850 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 16:59:29,851 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 16:59:30,614 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 16:59:30,620 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:59:30,621 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 16:59:30,621 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 16:59:30,673 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 16:59:30,674 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 822 ms
+2024-09-23 16:59:31,381 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 16:59:31,443 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 16:59:31,637 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 16:59:31,650 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 16:59:31,681 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 16:59:31,691 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.137 seconds (JVM running for 2.815)
+2024-09-23 16:59:44,622 INFO [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 16:59:44,623 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-23 16:59:44,628 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 5 ms
+2024-09-23 16:59:44,930 INFO [http-nio-9090-exec-2] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2024-09-23 16:59:45,041 INFO [http-nio-9090-exec-2] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2024-09-23 17:02:13,092 WARN [http-nio-9090-exec-10] o.s.w.s.m.s.DefaultHandlerExceptionResolver [AbstractHandlerExceptionResolver.java:199] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2024-09-23 17:02:27,338 WARN [http-nio-9090-exec-7] o.s.w.s.m.s.DefaultHandlerExceptionResolver [AbstractHandlerExceptionResolver.java:199] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2024-09-23 17:05:40,269 WARN [http-nio-9090-exec-3] o.s.w.s.m.s.DefaultHandlerExceptionResolver [AbstractHandlerExceptionResolver.java:199] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2024-09-23 17:12:47,637 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 17:12:47,638 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2024-09-23 17:12:47,645 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2024-09-23 17:12:49,927 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 8930 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 17:12:49,931 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 17:12:49,997 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 17:12:49,998 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 17:12:50,860 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 17:12:50,866 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 17:12:50,867 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 17:12:50,867 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 17:12:50,910 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 17:12:50,910 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 911 ms
+2024-09-23 17:12:51,301 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 17:12:51,433 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 17:12:51,618 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 17:12:51,630 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 17:12:51,656 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 17:12:51,664 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.105 seconds (JVM running for 2.995)
+2024-09-23 17:13:05,679 INFO [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 17:13:05,679 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-23 17:13:05,683 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 4 ms
+2024-09-23 17:13:05,979 INFO [http-nio-9090-exec-6] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2024-09-23 17:13:06,092 INFO [http-nio-9090-exec-6] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2024-09-23 17:22:55,312 WARN [HikariPool-1 housekeeper] c.z.h.p.HikariPool [HikariPool.java:787] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m19s76ms).
+2024-09-23 17:27:41,588 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-23 17:27:41,914 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2024-09-23 17:27:41,922 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2024-09-23 17:27:44,148 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MacBook-Pro.local with PID 9035 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-23 17:27:44,152 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-23 17:27:44,213 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-23 17:27:44,214 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-23 17:27:45,148 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9090 (http)
+2024-09-23 17:27:45,155 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9090"]
+2024-09-23 17:27:45,155 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-23 17:27:45,155 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-23 17:27:45,209 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-23 17:27:45,209 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 994 ms
+2024-09-23 17:27:45,881 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-23 17:27:45,946 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-23 17:27:46,125 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-23 17:27:46,137 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9090"]
+2024-09-23 17:27:46,169 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9090 (http) with context path ''
+2024-09-23 17:27:46,180 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 2.326 seconds (JVM running for 3.178)
+2024-09-23 17:27:54,826 INFO [http-nio-9090-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-23 17:27:54,826 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-23 17:27:54,830 INFO [http-nio-9090-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 4 ms
+2024-09-23 17:27:55,053 INFO [http-nio-9090-exec-3] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2024-09-23 17:27:55,156 INFO [http-nio-9090-exec-3] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.

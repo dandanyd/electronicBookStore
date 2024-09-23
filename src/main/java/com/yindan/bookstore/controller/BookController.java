@@ -1,5 +1,6 @@
 package com.yindan.bookstore.controller;
 
+import com.yindan.bookstore.dto.BookDto;
 import com.yindan.bookstore.entity.BookEntity;
 import com.yindan.bookstore.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,8 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @PostMapping
-    public int addBook(@RequestBody BookEntity book) {
+    @PostMapping(value = "/addBook", consumes = "application/x-www-form-urlencoded")
+    public int addBook(@ModelAttribute BookEntity book) {
         return bookService.addBook(book);
     }
 
@@ -35,9 +36,9 @@ public class BookController {
     }
 
     @RequestMapping("/queryBooks")
-    public List<BookEntity> getAllBooks(@RequestParam(name = "title",defaultValue = "") String title,
-                                        @RequestParam(name = "author",defaultValue = "") String author,
-                                        @RequestParam(name = "category",defaultValue = "") String category) {
+    public List<BookDto> getAllBooks(@RequestParam(name = "title",defaultValue = "") String title,
+                                     @RequestParam(name = "author",defaultValue = "") String author,
+                                     @RequestParam(name = "category",defaultValue = "") String category) {
         return bookService.searchBooks(title, author, category);
     }
 

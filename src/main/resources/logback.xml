@@ -9,7 +9,7 @@
 
     <!-- 文件输出 -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>d.log</file>
+        <file>file.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 每天生成一个新的日志文件 -->
             <fileNamePattern>logs/app.%d{yyyy-MM-dd}.log</fileNamePattern>

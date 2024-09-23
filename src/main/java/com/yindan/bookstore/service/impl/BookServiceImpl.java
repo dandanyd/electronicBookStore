@@ -23,7 +23,18 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public int addBook(BookEntity book) {
-        return bookDao.insert(book);
+        //根据isbn查询该书是否已经存在
+        BookEntity bookEntity = bookDao.selectByIsbn(book.getIsbn());
+        if (null != bookEntity){
+            //存在该书籍，修改新书库存
+            bookEntity.setStock(book.getStock() + bookEntity.getStock());
+            bookDao.updateByPrimaryKey(bookEntity);
+        }else {
+            //不存在，新增书籍
+            bookDao.insert(book);
+        }
+        logger.info("添加书籍其中isbn:"+book.getIsbn());
+        return 1;
     }
 
     @Override
@@ -42,12 +53,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookDto> selectAllBooks() {
-        return bookDao.selectAllBooks();
-    }
-
-    @Override
-    public List<BookEntity> searchBooks(String title, String author, String category) {
+    public List<BookDto> searchBooks(String title, String author, String category) {
         return bookDao.selectByCondition(title, author, category);
     }
 

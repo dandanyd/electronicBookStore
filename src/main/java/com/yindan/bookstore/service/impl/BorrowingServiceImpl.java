@@ -8,6 +8,8 @@ import com.yindan.bookstore.entity.BookEntity;
 import com.yindan.bookstore.entity.BorrowingEntity;
 import com.yindan.bookstore.entity.BorrowingRecordEntity;
 import com.yindan.bookstore.service.BorrowingService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,7 @@ public class BorrowingServiceImpl implements BorrowingService {
     @Autowired
     private BorrowingRecordDao borrowingRecordDao;
 
+    private static final Logger logger = LoggerFactory.getLogger("FILE");
 
     @Transactional
     @Override
@@ -109,7 +112,7 @@ public class BorrowingServiceImpl implements BorrowingService {
             }
         }
 
-        System.out.println(map);
+        map.put("msg","借阅成功！");
         return map;
 
 

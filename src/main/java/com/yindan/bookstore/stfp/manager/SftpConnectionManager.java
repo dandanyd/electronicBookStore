@@ -1,6 +1,7 @@
 package com.yindan.bookstore.stfp.manager;
 
 import com.jcraft.jsch.*;
+import com.yindan.bookstore.constant.SftpConstant;
 
 import java.util.Properties;
 
@@ -23,8 +24,9 @@ public class SftpConnectionManager {
         config.put("mac.s2c", "hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com");
         config.put("mac.c2s", "hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com");
         config.put("kex", "diffie-hellman-group-exchange-sha256");
-        session = jsch.getSession("uftp01", "192.168.1.10", 22); // 填充实际用户名
-        session.setPassword("uftp0101"); // 填充实际密码
+        //session = jsch.getSession("uftp01", "192.168.1.10", 22); // 填充实际用户名
+        session = jsch.getSession(SftpConstant.USER_NAME, SftpConstant.HOST, SftpConstant.PORT); // 填充实际用户名
+        session.setPassword(SftpConstant.PASSWORD); // 填充实际密码
         //session.setConfig("kex","diffie-hellman-group1-sha1");
         session.setConfig("StrictHostKeyChecking", "no");
 //        Properties config = new Properties();

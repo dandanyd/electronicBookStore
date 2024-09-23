@@ -41,7 +41,7 @@
       isbn, category, price, 
       stock, cover_image, created_at, 
       updated_at)
-    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR},
       #{isbn,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
       #{stock,jdbcType=INTEGER}, #{coverImage,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, 
       #{updatedAt,jdbcType=TIMESTAMP})
@@ -80,35 +80,29 @@
     where id = #{id,jdbcType=BIGINT}
   </update>
 
-  <select id="selectAllBooks" resultMap="DtoResultMap">
-        SELECT
-        t1.id,
-        t1.title,
-        t1.author,
-        t1.isbn,
-        t1.category,
-        t1.price,
-        t1.cover_image coverImage,
-		t1.stock ,
-		( SELECT count( 1 ) FROM borrowing t WHERE t.book_id = t1.id and t.status != '已售出') stock_borrowing,
-        t1.stock + ( SELECT count( 1 ) FROM borrowing t WHERE t.book_id = t1.id and t.status != '已售出') stock_sum
+  <select id="selectByCondition" resultMap="DtoResultMap">
+    SELECT
+      t1.id,
+      t1.title,
+      t1.author,
+      t1.isbn,
+      t1.category,
+      t1.price,
+      t1.cover_image coverImage,
+      t1.stock ,
+    ( SELECT count( 1 ) FROM borrowing t WHERE t.book_id = t1.id and t.status != '已售出') stock_borrowing,
+    t1.stock + ( SELECT count( 1 ) FROM borrowing t WHERE t.book_id = t1.id and t.status != '已售出') stock_sum
     FROM
-        book t1
-  </select>
-
-  <select id="selectByCondition" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from book
+    book t1
     <where>
       <if test="title != null and title.trim() != ''">
-         and title like concat('%',#{title,jdbcType=VARCHAR},'%')
+         and t1.title like concat('%',#{title,jdbcType=VARCHAR},'%')
       </if>
       <if test="author != null and author.trim() != ''">
-         and author like concat('%',#{author,jdbcType=VARCHAR},'%')
+         and t1.author like concat('%',#{author,jdbcType=VARCHAR},'%')
       </if>
       <if test="category != null and category.trim() != ''">
-         and category = #{category,jdbcType=VARCHAR}
+         and t1.category = #{category,jdbcType=VARCHAR}
       </if>
     </where>
   </select>

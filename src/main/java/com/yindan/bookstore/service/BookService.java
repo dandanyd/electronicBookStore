@@ -11,7 +11,6 @@ public interface BookService {
     int updateBook(BookEntity book);
     int deleteBookById(Long id);
     BookEntity getBookById(Long id);
-    List<BookDto> selectAllBooks();
-    List<BookEntity> searchBooks(String title, String author, String category);
+    List<BookDto> searchBooks(String title, String author, String category);
     int saveBooks(BookEntity bookEntity);
 }

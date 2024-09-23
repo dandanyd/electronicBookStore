@@ -1,0 +1,241 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" lang="zh-CN">
+<head>
+    <title>工作包管理(新)</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9;IE=8;IE=7;IE=6;IE=EDGE"/>
+    <link href="lib/nui/themes/default/miniui.css" rel="stylesheet" type="text/css"/>
+    <script src="lib/nui/jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="js/boot.js" type="text/javascript"></script>
+    <script src="js/date-util.js" type="text/javascript"></script>
+    <script src="lib/jquery/jquery.form.js" type="text/javascript"></script>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .textwidth {
+            width: 200px;
+        }
+
+        .textwidth2 {
+            width: 30px;
+        }
+
+        .textOrgndept {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+<div class="mini-toolbar" style="border-bottom: none;">
+
+    <label>书名 </label><input id="title" class="textwidth mini-textbox"/>
+    <label>作者 </label><input id="author" class="textwidth mini-textbox"/>
+    <label>分类 </label><input id="category" class="textwidth mini-textbox"/>
+
+</div>
+<div class="mini-toolbar" style="border-bottom: none;">
+    <table style="width:100%;">
+        <tr>
+            <td style="width:100%;">
+                <!-------btn按钮------->
+                <button id="btnSearch" style="margin-left: 3px" class="mini-button" plain="true" iconCls="icon-search"
+                        >查询
+                </button>
+                <button id="btnAdd" style="margin-left: 3px" class="mini-button" plain="true" iconCls="icon-add"
+                        >录入书籍
+                </button>
+                <button id="btnBorrow" style="margin-left: 3px" class="mini-button" plain="true" iconCls="icon-save"
+                        >借阅
+                </button>
+                <button id="btnReturn" style="margin-left: 3px" class="mini-button" plain="true" iconCls="icon-save"
+                        >归还
+                </button>
+                <button id="btnSale" style="margin-left: 3px" class="mini-button" plain="true" iconCls="icon-save"
+                        >销售
+                </button>
+                <button id="btnLog" style="margin-left: 3px" class="mini-button" plain="true" iconCls="icon-save"
+                        >日志查看
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="mini-fit" style="clear: both;">
+    <div class="mini-toolbar" style="border-left: none;border-right: none;">
+        <span style="margin-left: 3px;">书籍列表</span>
+    </div>
+    <div class="mini-fit">
+        <div id="bookGrid"
+             class="mini-datagrid"
+             url="api/books/queryBooks"
+             style="width:100%;height:100%;"
+             idField="id"
+             dataField="list"
+             allowResize="false"
+             sizeList="[50,200,500,1000]"
+             pageSize="50"
+             showPager="true"
+             multiSelect="false"
+             allowCellEdit="true"
+             allowCellSelect="true"
+             editNextOnEnterKey="true"
+             allowSortColumn="false"
+             autoLoad="true">
+            <div property="columns">
+                <div type="indexcolumn" width="40" headerAlign="center" align="center">序号</div>
+                <div type="checkcolumn" width="60" headerAlign="center" align="center"></div>
+                <div field="id" width="60" type="hideColumn">编号</div>
+                <div field="isbn" width="60" headerAlign="center" align="center" allowSort="false" readOnly="true">书籍编码</div>
+                <div field="title" width="60" headerAlign="center" align="center" allowSort="false" readOnly="true">书名
+                    <input property="editor" style="width: 100%;" class="mini-textbox">
+                </div>
+                <div field="author" width="100" headerAlign="center" align="center">作者</div>
+                <div field="category" width="100" headerAlign="center" align="center">分类</div>
+                <div field="price" width="100" headerAlign="center" align="center">价格</div>
+                <div field="stock" width="100" headerAlign="center" align="center">新书库存</div>
+                <div field="stockBorrowing" width="100" headerAlign="center" align="center">借阅库存</div>
+                <div field="stockSum" width="100" headerAlign="center" align="center">总库存</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="win1" class="mini-window" title="录入书籍" style="width:800px;height:600px;"
+     showMaxButton="true" showCollapseButton="true" showShadow="true"
+     showToolbar="true" showFooter="true" showModal="false" allowResize="true" allowDrag="true"
+>
+    <div class="mini-fit">
+        <form id="bookForm" method="POST" action="api/books/addBook" enctype="application/x-www-form-urlencoded">
+            <table>
+                <tr>
+                    <td>国际标准编号:</td>
+                    <td>
+                        <input id="isbn" name="isbn" class="mini-textbox" required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>书名:</td>
+                    <td>
+                        <input name="title" class="mini-textbox" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>作者:</td>
+                    <td>
+                        <input name="author" class="mini-textbox" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>分类:</td>
+                    <td>
+                        <select name="category" class="mini-combobox" required="true">
+                            <option value="">请选择...</option>
+                            <option value="古典文学">古典文学</option>
+                            <option value="历史小说">历史小说</option>
+                            <option value="武侠小说">武侠小说</option>
+                            <option value="神话小说">神话小说</option>
+                            <option value="现代文学">现代文学</option>
+                            <option value="推理小说">推理小说</option>
+                            <option value="外国文学">外国文学</option>
+                            <!-- 可以添加更多选项 -->
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>价格 (元):</td>
+                    <td>
+                        <input id="price" name="price" class="mini-spinner" minValue="0" maxValue="9999" decimalPrecision="2" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>数量:</td>
+                    <td>
+                        <input id="stock" name="stock" class="mini-spinner" minValue="0" maxValue="9999" required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center; padding-top: 20px;">
+                        <a id="add_submitButton" class="mini-button">提交</a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+</div>
+
+<div id="win2" class="mini-window" title="借阅书籍" style="width:600px;height:300px;"
+     showMaxButton="true" showCollapseButton="true" showShadow="true"
+     showToolbar="true" showFooter="true" showModal="false" allowResize="true" allowDrag="true"
+>
+    <div class="mini-fit">
+        <label>书籍编码 </label><input id="borrow_bookId" class="textwidth mini-textbox"/><br/>
+        <label>借阅人 </label><input id="borrow_userName" class="textwidth mini-textbox"/><br/>
+        <label>计划归还日期 </label><input id="borrow_dueDate" format="yyyy-MM-dd" class="mini-datepicker"/><br/>
+        <button id="btnBorrowWin" class="mini-button">借阅</button>
+    </div>
+</div>
+
+<div id="win3" class="mini-window" title="归还书籍" style="width:600px;height:300px;"
+     showMaxButton="true" showCollapseButton="true" showShadow="true"
+     showToolbar="true" showFooter="true" showModal="false" allowResize="true" allowDrag="true"
+>
+    <div class="mini-fit">
+        <label>书籍编码 </label><input id="return_bookId" class="textwidth mini-textbox"/><br/>
+        <label>归还人 </label><input id="return_userName" class="textwidth mini-textbox"/><br/>
+        <label>破损程度 </label>
+        <select id="return_damageLevel" class="mini-combobox" required="true">
+            <option value="">请选择...</option>
+            <option value="9">9成新</option>
+            <option value="8">8成新</option>
+            <option value="7">7成新</option>
+            <option value="6">6成新</option>
+            <option value="5">5成新</option>
+            <option value="4">4成新</option>
+            <option value="3">3成新</option>
+            <option value="2">2成新</option>
+            <option value="1">1成新</option>
+            <!-- 可以添加更多选项 -->
+        </select><br/>
+        <button id="btnReturnWin" class="mini-button">归还</button>
+    </div>
+</div>
+<div id="win4" class="mini-window" title="日志" style="width:1000px;height:600px;"
+     showMaxButton="true" showCollapseButton="true" showShadow="true"
+     showToolbar="true" showFooter="true" showModal="false" allowResize="true" allowDrag="true"
+>
+    <div class="mini-fit">
+<!--        <div id="logGrid" class="mini-datagrid" style="width: 100%; height: 100%;"-->
+<!--             url="/getFileLog"-->
+<!--             idField="index"-->
+<!--             showHeader="false"-->
+<!--             multiSelect="false"-->
+<!--             pageSize="50">-->
+<!--            <div property="columns">-->
+<!--                <div field="content" header="日志内容" width="*"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <textarea id="log_txt" class="mini-textarea" style="width: 100%;height: 100%"></textarea>
+
+    </div>
+</div>
+
+
+<!---导出 start---------------------------------------->
+<form id="exportIFrame" style="display: none;"></form>
+<form id="excelForm" method="post" target="excelIFrame"></form>
+<iframe id="excelIFrame" name="excelIFrame" style="display: none;"></iframe>
+<!---导出 end---------------------------------------->
+</body>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/bookIndex.js"></script>
+</html>

@@ -19,7 +19,5 @@ public interface BookDao {
 
     int updateByPrimaryKey(BookEntity record);
 
-    List<BookDto> selectAllBooks();
-
-    List<BookEntity> selectByCondition(@Param("title") String title, @Param("author") String author, @Param("category") String category);
+    List<BookDto> selectByCondition(@Param("title") String title, @Param("author") String author, @Param("category") String category);
 }
