@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
 
-public class SimpleUploadStrategy implements Strategy<Void> {
+public class SimpleUploadStrategy implements Strategy {
 
   /*  @Override
     public void upload(ChannelSftp channel, File file, String remotePath) throws IOException, SftpException {
@@ -93,8 +93,10 @@ public class SimpleUploadStrategy implements Strategy<Void> {
 
     //生成excel
     public void generateExcelFile(String filePath) throws IOException {
+        //TODO 定时任务生成excel放到这边来
+
         // 创建一个新的Excel工作簿
-        Workbook workbook = new XSSFWorkbook();
+    /*    Workbook workbook = new XSSFWorkbook();
 
         // 创建一个新的工作表
         Sheet sheet = workbook.createSheet("Books");
@@ -129,5 +131,7 @@ public class SimpleUploadStrategy implements Strategy<Void> {
 
         // 关闭工作簿
         workbook.close();
+
+     */
     }
 }

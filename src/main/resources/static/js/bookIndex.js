@@ -35,6 +35,7 @@ var page = {
         this.btnReturn = mini.get("btnReturn");
         this.btnSale = mini.get("btnSale");
         this.btnLog = mini.get("btnLog");
+        this.btnExcel = mini.get("btnExcel");
         //弹出窗口的按钮
         this.add_submitButton = mini.get("add_submitButton");
         this.btnBorrowWin = mini.get("btnBorrowWin");
@@ -69,6 +70,7 @@ var page = {
         this.btnBorrow.on('click', this.tool.myBind(this.borrowWin, page));
         this.btnReturn.on('click', this.tool.myBind(this.returnWin, page));
         this.btnLog.on('click', this.tool.myBind(this.logWin, page));
+        this.btnExcel.on('click', this.tool.myBind(this.reportExcel, page));
         this.add_submitButton.on('click',this.tool.myBind(this.addBookForm, page));
         this.btnBorrowWin.on('click',this.tool.myBind(this.borrowData, page));
         this.btnReturnWin.on('click',this.tool.myBind(this.returnData, page));
@@ -174,6 +176,12 @@ var page = {
                 console.error('Error submitting form:', error);
             }
         });
+    },
+
+    reportExcel: function () {
+        document.getElementById("excelForm").action = "/api/report/reportData";
+        var excelForm = document.getElementById("excelForm");
+        excelForm.submit();
     }
 
 

@@ -2,9 +2,11 @@ package com.yindan.bookstore.stfp.manager;
 
 import com.jcraft.jsch.*;
 import com.yindan.bookstore.constant.SftpConstant;
+import org.springframework.stereotype.Component;
 
 import java.util.Properties;
 
+@Component
 public class SftpConnectionManager {
 
     //SFTP连接管理对象
@@ -51,6 +53,8 @@ public class SftpConnectionManager {
         }
         return instance;
     }
+
+
 
     public  void close() throws SftpException {
         if (sftpChannel != null && sftpChannel.isConnected()) {

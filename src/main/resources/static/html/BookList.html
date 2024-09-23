@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" lang="zh-CN">
+<head>
+    <title>工作包管理(新)</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9;IE=8;IE=7;IE=6;IE=EDGE"/>
+    <link href="../lib/nui/themes/default/miniui.css" rel="stylesheet" type="text/css"/>
+    <script src="../lib/nui/jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="../js/boot.js" type="text/javascript"></script>
+    <script src="../js/date-util.js" type="text/javascript"></script>
+    <script src="../lib/jquery/jquery.form.js" type="text/javascript"></script>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .textwidth {
+            width: 50px;
+        }
+
+        .textwidth2 {
+            width: 30px;
+        }
+
+        .textOrgndept {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+<div class="mini-toolbar" style="border-bottom: none;">
+
+    <label>项目 </label><input id="Project" class="textwidth mini-textbox"/>
+    <label>分段/总段区域代码 </label><input id="Loc" class="textwidth mini-textbox"/>
+    <label>作业类型 </label><input id="TypeOfWork" class="textwidth2 mini-textbox"/>
+    <label>分类 </label><input id="Classify" class="textwidth2 mini-textbox"/>
+    <label>物资类别 </label><input id="SuppliesCategory" class="textwidth2 mini-textbox"/>
+    <label>阶段 </label><input id="Stage" class="textwidth2 mini-textbox"/>
+    <label>序号 </label><input id="SerialNumber" class="textwidth2 mini-textbox"/>
+
+</div>
+<div class="mini-toolbar" style="border-bottom: none;">
+    <table style="width:100%;">
+        <tr>
+            <td style="width:100%;">
+                <!-------btn按钮------->
+                <button id="btnSearch" style="margin-left: 3px" class="mini-button" plain="true" iconCls="icon-search"
+                        enabled="false">查询
+                </button>
+                <button id="btnAdd" style="margin-left: 3px" class="mini-button" plain="true" iconCls="icon-add"
+                        enabled="false">新增
+                </button>
+                <button id="btnDelete" style="margin-left: 3px" class="mini-button" plain="true" iconCls="icon-remove"
+                        enabled="false">删除
+                </button>
+                <button id="btnSave" style="margin-left: 3px" class="mini-button" plain="true" iconCls="icon-save"
+                        enabled="false">保存
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="mini-fit" style="clear: both;">
+    <div class="mini-toolbar" style="border-left: none;border-right: none;">
+        <span style="margin-left: 3px;">书籍列表</span>
+    </div>
+    <div class="mini-fit">
+        <div id="WorkPageMngGrid"
+             class="mini-datagrid"
+             url="../api/books/queryBooks"
+             style="width:100%;height:100%;"
+             idField="id"
+             dataField="list"
+             allowResize="false"
+             sizeList="[50,200,500,1000]"
+             pageSize="50"
+             showPager="true"
+             multiSelect="true"
+             allowCellEdit="true"
+             allowCellSelect="true"
+             editNextOnEnterKey="true"
+             allowSortColumn="false">
+            <div property="columns">
+                <div type="indexcolumn" width="40" headerAlign="center" align="center">序号</div>
+                <div type="checkcolumn" width="60" headerAlign="center" align="center"></div>
+                <div field="title" width="60" headerAlign="center" align="center" allowSort="false" readOnly="true">书名
+                    <input property="editor" style="width: 100%;" class="mini-textbox">
+                </div>
+                <div field="author" width="100" headerAlign="center" align="center">作者
+                </div>
+
+                <div field="fsDt" width="100" headerAlign="center" align="center" allowSort="false" readOnly="false"
+                     dateFormat="yyyyMMdd">FS<br/>最早开始
+                    <input property="editor" style="width: 100%;" class="mini-datepicker" format="yyyyMMdd"
+                           valueFormat="yyyyMMdd">
+                </div>
+                <div field="lfDt" width="100" headerAlign="center" align="center" allowSort="false" readOnly="false"
+                     dateFormat="yyyyMMdd">LF<br/>最晚结束
+                    <input property="editor" style="width: 100%;" class="mini-datepicker" format="yyyyMMdd"
+                           valueFormat="yyyyMMdd">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!---导出 start---------------------------------------->
+<form id="exportIFrame" style="display: none;"></form>
+<form id="excelForm" method="post" target="excelIFrame"></form>
+<iframe id="excelIFrame" name="excelIFrame" style="display: none;"></iframe>
+<!---导出 end---------------------------------------->
+</body>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript" src="../js/bookIndex.js"></script>
+</html>

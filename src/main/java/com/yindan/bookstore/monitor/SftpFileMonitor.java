@@ -2,6 +2,9 @@ package com.yindan.bookstore.monitor;
 
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.SftpException;
+import com.yindan.bookstore.entity.BookEntity;
+import com.yindan.bookstore.utils.ExcelReaderUtils;
+import javafx.util.Pair;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.File;
@@ -10,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -63,11 +67,10 @@ public class SftpFileMonitor {
 
     private void downloadAndParseFile(String fileName) {
         String remoteFilePath = remoteDirectory + "/" + fileName;
-        //String localFilePath = "C:\\Users\\45905\\Desktop\\" + fileName;
-        String localFilePath = "C:\\Users\\45905\\Desktop\\1q.xlsx" ;
+
         try {
             // 创建临时文件
-            File tempFile = new File(localFilePath);
+            File tempFile = File.createTempFile("tempExcel", ".xlsx");
             tempFile.deleteOnExit(); // 确保在JVM退出时删除临时文件
 
             // 下载文件到临时文件
@@ -87,7 +90,12 @@ public class SftpFileMonitor {
         }
     }
 
-    private void parseFile(File file) {
+    private void parseFile(File file) throws IOException {
+
+        ExcelReaderUtils readerService = new ExcelReaderUtils();
+        Pair<List<Map<String, Object>>, List<BookEntity>> result = readerService.readExcel(file.getAbsolutePath());
+        //TODO 解析result传入数据库未完成
+
         // 这里是解析文件的逻辑
         // 示例：打印文件内容
        /* try (BufferedReader reader = Files.newBufferedReader(file.toPath(), StandardCharsets.UTF_8)) {
@@ -100,7 +108,7 @@ public class SftpFileMonitor {
             throw new RuntimeException("Failed to read file content.", e);
         }*/
         try (FileInputStream fis = new FileInputStream(file)) {
-            Workbook workbook = WorkbookFactory.create(fis);
+/*            Workbook workbook = WorkbookFactory.create(fis);
             Sheet sheet = workbook.getSheetAt(0);
 
             // 假设第一行为标题行
@@ -130,7 +138,8 @@ public class SftpFileMonitor {
                     System.out.println(headers[j] + ": " + values[j]);
                 }
                 System.out.println("------------------------");
-            }
+            }*/
+
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to read file content.", e);

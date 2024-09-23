@@ -6,7 +6,7 @@ import com.jcraft.jsch.SftpException;
 import java.io.File;
 import java.io.IOException;
 
-public interface Strategy<T> {
+public interface Strategy {
     void execute(ChannelSftp channel, File localFilePath, String remoteFilePath) throws SftpException;
 
     void execute(ChannelSftp channel, String remoteFilePath) throws SftpException;

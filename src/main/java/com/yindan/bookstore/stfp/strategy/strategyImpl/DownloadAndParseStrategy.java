@@ -8,7 +8,7 @@ import org.apache.poi.ss.usermodel.*;
 import java.io.*;
 import java.nio.file.Files;
 
-public class DownloadAndParseStrategy implements Strategy<Void> {
+public class DownloadAndParseStrategy implements Strategy {
 
     private void parseFileContent(File file) {
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {

@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.servlet.http.HttpServletResponse;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -42,8 +43,8 @@ public class SalesRecordServiceTest {
     }
 
     @Test
-    public void testReport(){
-        reportBorrowSaleService.reportData();
+    public void testReport(HttpServletResponse response){
+        reportBorrowSaleService.reportData(response);
     }
 
 

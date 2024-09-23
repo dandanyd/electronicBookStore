@@ -19,7 +19,7 @@ public class SftpUploaderTest {
 
     //上传本地文件至sftp
     @Test
-    public void uploadFile() throws JSchException {
+    public void uploadFile() throws JSchException, SftpException {
         String localFilePath = "/Users/yindandan/Desktop/renren/myfile.txt";
         String remoteFilePath = "/data/sftp/uftp01/upload/";
         String strategyType = "simple";
@@ -29,8 +29,7 @@ public class SftpUploaderTest {
 
     //生成excel并上传sftp
     @Test
-    public void uploadExeclFile() throws IOException, JSchException {
-        //String localFilePath = "C:\\Users\\45905\\Desktop\\11112.xlsx";
+    public void uploadExeclFile() throws IOException, JSchException, SftpException {
         String remoteFilePath = "/data/sftp/uftp01/upload/";
         String strategyType = "simple";
         sftpUploader.uploadExeclFile(remoteFilePath,strategyType);
@@ -40,7 +39,7 @@ public class SftpUploaderTest {
     //下载文件
     @Test
     public void downloadFile() throws JSchException, SftpException, IOException {
-        String localFilePath = "C:\\Users\\45905\\Desktop\\1改.txt";
+        String localFilePath = "/Users/yindandan/Desktop/renren/myfile.txt";
         String remoteFilePath = "/data/sftp/uftp01/upload/111.txt";
         String strategyType = "download";
         sftpUploader.downloadFile(remoteFilePath,localFilePath,strategyType);
@@ -51,17 +50,15 @@ public class SftpUploaderTest {
     //下载文件并解析
     @Test
     public void downloadAndParseFile() throws JSchException, SftpException, IOException {
-        String localFilePath = "C:\\Users\\45905\\Desktop\\1改.txt";//参数弃用
         String remoteFilePath = "/data/sftp/uftp01/upload/myfile.txt";
         String strategyType = "download";
-        sftpUploader.downloadAndParseFile(remoteFilePath,localFilePath,strategyType);
+        sftpUploader.downloadAndParseFile(remoteFilePath,strategyType);
         System.out.println("解析打印成功");
     }
 
     //下载Excel文件并解析
     @Test
     public void downloadExcelAndParseFile() throws JSchException, SftpException, IOException {
-        String localFilePath = "C:\\Users\\45905\\Desktop\\1改.txt";//参数弃用
         String remoteFilePath = "/data/sftp/uftp01/upload/tempExcel3697729047839621505.xlsx";
         String strategyType = "download";
         sftpUploader.downloadExcelAndParseFile(remoteFilePath,strategyType);
