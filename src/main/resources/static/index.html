@@ -84,7 +84,7 @@
              allowResize="false"
              sizeList="[50,200,500,1000]"
              pageSize="50"
-             showPager="true"
+             showPager="false"
              multiSelect="false"
              allowCellEdit="true"
              allowCellSelect="true"
@@ -232,6 +232,17 @@
     </div>
 </div>
 
+<div id="win5" class="mini-window" title="购买书籍" style="width:600px;height:300px;"
+     showMaxButton="true" showCollapseButton="true" showShadow="true"
+     showToolbar="true" showFooter="true" showModal="false" allowResize="true" allowDrag="true"
+>
+    <div class="mini-fit">
+        <label>书籍编码 </label><input id="buy_bookId" class="textwidth mini-textbox"/><br/>
+        <label>购买人 </label><input id="buy_userName" class="textwidth mini-textbox"/><br/>
+        <label>数量 </label><input id="buy_quantity" name="buy_quantity" class="mini-spinner" minValue="0" maxValue="9999" required="true" /><br/>
+        <button id="btnBuyWin" class="mini-button">购买</button>
+    </div>
+</div>
 
 <!---导出 start---------------------------------------->
 <form id="exportIFrame" style="display: none;"></form>

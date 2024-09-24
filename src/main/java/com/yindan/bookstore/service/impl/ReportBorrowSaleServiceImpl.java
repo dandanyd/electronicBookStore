@@ -3,8 +3,12 @@ package com.yindan.bookstore.service.impl;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.SftpException;
 import com.yindan.bookstore.dao.BorrowingDao;
+import com.yindan.bookstore.dao.ReportDao;
+import com.yindan.bookstore.dao.ReportDetailsDao;
 import com.yindan.bookstore.dto.ReportDetailsDto;
 import com.yindan.bookstore.dto.ReportDto;
+import com.yindan.bookstore.entity.ReportDetailsEntity;
+import com.yindan.bookstore.entity.ReportEntity;
 import com.yindan.bookstore.service.ReportBorrowSaleService;
 import com.yindan.bookstore.stfp.manager.SftpConnectionManager;
 import org.apache.poi.ss.usermodel.*;
@@ -29,6 +33,12 @@ public class ReportBorrowSaleServiceImpl implements ReportBorrowSaleService {
 
     @Autowired
     private SftpConnectionManager sftpManager;
+
+    @Autowired
+    private ReportDao reportDao;
+
+    @Autowired
+    private ReportDetailsDao reportDetailsDao;
 
 
     public void reportData(HttpServletResponse response){
@@ -272,5 +282,14 @@ public class ReportBorrowSaleServiceImpl implements ReportBorrowSaleService {
           //  channel.disconnect();
         }
 
+    }
+
+    public void addReport(List<ReportEntity> reportEntities, List<ReportDetailsEntity> reportDetailsEntityList){
+        for (ReportEntity reportEntity : reportEntities) {
+            reportDao.insert(reportEntity);
+        }
+        for (ReportDetailsEntity entity : reportDetailsEntityList) {
+            reportDetailsDao.insert(entity);
+        }
     }
 }

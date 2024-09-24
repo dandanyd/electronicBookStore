@@ -1,86 +1,43 @@
 package com.yindan.bookstore.entity;
 
-import java.math.BigDecimal;
-import java.util.Date;
-
 public class ReportEntity {
-    private Long id;
+    private Integer id;
 
-    private String reportType;
+    private String type;
 
-    private Date reportDate;
+    private String category;
 
-    private Integer totalBooks;
+    private Integer quantity;
 
-    private BigDecimal totalSales;
-
-    private Date createdAt;
-
-    private Date updatedAt;
-
-    private String detail;
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getReportType() {
-        return reportType;
+    public String getType() {
+        return type;
     }
 
-    public void setReportType(String reportType) {
-        this.reportType = reportType == null ? null : reportType.trim();
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
     }
 
-    public Date getReportDate() {
-        return reportDate;
+    public String getCategory() {
+        return category;
     }
 
-    public void setReportDate(Date reportDate) {
-        this.reportDate = reportDate;
+    public void setCategory(String category) {
+        this.category = category == null ? null : category.trim();
     }
 
-    public Integer getTotalBooks() {
-        return totalBooks;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setTotalBooks(Integer totalBooks) {
-        this.totalBooks = totalBooks;
-    }
-
-    public BigDecimal getTotalSales() {
-        return totalSales;
-    }
-
-    public void setTotalSales(BigDecimal totalSales) {
-        this.totalSales = totalSales;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public String getDetail() {
-        return detail;
-    }
-
-    public void setDetail(String detail) {
-        this.detail = detail == null ? null : detail.trim();
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 }

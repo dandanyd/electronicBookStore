@@ -40,6 +40,7 @@ var page = {
         this.add_submitButton = mini.get("add_submitButton");
         this.btnBorrowWin = mini.get("btnBorrowWin");
         this.btnReturnWin = mini.get("btnReturnWin");
+        this.btnBuyWin = mini.get("btnBuyWin");
 
         //借阅内容
         this.borrow_bookId = mini.get("borrow_bookId");//书籍号
@@ -49,11 +50,16 @@ var page = {
         this.return_bookId = mini.get("return_bookId");//书籍号
         this.return_userName = mini.get("return_userName");//归还人
         this.return_damageLevel = mini.get("return_damageLevel");//破损程度
+        //销售内容
+        this.buy_bookId = mini.get("buy_bookId");//书籍号
+        this.buy_userName = mini.get("buy_userName");//归还人
+        this.buy_quantity = mini.get("buy_quantity");//破损程度
 
         this.win1 = mini.get("win1");
         this.win2 = mini.get("win2");
         this.win3 = mini.get("win3");
         this.win4 = mini.get("win4");
+        this.win5 = mini.get("win5");
 
 
         this.bookGrid = mini.get("bookGrid");
@@ -69,11 +75,13 @@ var page = {
         this.btnAdd.on('click', this.tool.myBind(this.insertData, page));
         this.btnBorrow.on('click', this.tool.myBind(this.borrowWin, page));
         this.btnReturn.on('click', this.tool.myBind(this.returnWin, page));
+        this.btnSale.on('click', this.tool.myBind(this.saleWin, page));
         this.btnLog.on('click', this.tool.myBind(this.logWin, page));
         this.btnExcel.on('click', this.tool.myBind(this.reportExcel, page));
         this.add_submitButton.on('click',this.tool.myBind(this.addBookForm, page));
         this.btnBorrowWin.on('click',this.tool.myBind(this.borrowData, page));
         this.btnReturnWin.on('click',this.tool.myBind(this.returnData, page));
+        this.btnBuyWin.on('click',this.tool.myBind(this.buyData, page));
 
     },
     searchData: function () {
@@ -182,7 +190,37 @@ var page = {
         document.getElementById("excelForm").action = "/api/report/reportData";
         var excelForm = document.getElementById("excelForm");
         excelForm.submit();
+    },
+
+    saleWin: function () {
+        var selRow = page.bookGrid.getSelected();
+        page.bookId = selRow.id;
+        if (selRow){
+            page.win5.show();
+            page.buy_bookId.setValue(selRow.isbn);
+        }else{
+            mini.alert("请选择需要购买的书籍！");
+            return;
+        }
+    },
+
+    buyData: function () {
+        $.ajax({
+            url: '/api/',
+            type: 'POST',
+            data: {
+
+            },
+            success: function(response) {
+                //跳转到支付页面
+                window.location.href = response.paymentUrl;
+            },
+            error: function(error) {
+                console.error('Error submitting form:', error);
+            }
+        });
     }
+
 
 
 

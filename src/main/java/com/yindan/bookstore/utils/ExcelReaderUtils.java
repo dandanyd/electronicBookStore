@@ -1,8 +1,11 @@
 package com.yindan.bookstore.utils;
 
 import com.yindan.bookstore.entity.BookEntity;
+import com.yindan.bookstore.entity.ReportDetailsEntity;
+import com.yindan.bookstore.entity.ReportEntity;
 import javafx.util.Pair;
 import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFRow;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,9 +15,9 @@ import java.time.ZoneId;
 import java.util.*;
 
 public class ExcelReaderUtils {
-    public Pair<List<Map<String, Object>>, List<BookEntity>> readExcel(String filePath) throws IOException {
-        List<BookEntity> books = new ArrayList<>();
-        List list = new ArrayList();
+    public Pair<List<ReportEntity>, List<ReportDetailsEntity>> readExcel(String filePath) throws IOException {
+        List<ReportDetailsEntity> reportDetailsEntityList = new ArrayList<>();
+        List<ReportEntity> reportEntityList = new ArrayList<>();
         try (FileInputStream fis = new FileInputStream(filePath)) {
             Workbook workbook = WorkbookFactory.create(fis);
             Sheet sheet = workbook.getSheetAt(0);
@@ -32,8 +35,41 @@ public class ExcelReaderUtils {
                 // 从第二行开始读取数据
                 for (rowIndex = 1; rowIndex <= sheet.getLastRowNum(); rowIndex++) {
                     Row row = sheet.getRow(rowIndex);
+                    if (row != null && row.cellIterator().hasNext()) {
+                        Iterator<Cell> iterator = row.cellIterator();
+                        ReportEntity entity = new ReportEntity();
+                        int i = 0;
+                        while (iterator.hasNext() && i < headers.size()) {
+                            Cell cell = iterator.next();
+                            String header = headers.get(i++);
+                            Object value = getValueFromCell(cell);
+                            switch (header) {
+                                case "类型":
+                                    entity.setType((String) value);
+                                    break;
+                                case "书籍分类":
+                                    entity.setCategory ((String) value);
+                                    break;
+                                case "数量":
+                                    //entity.setQuantity(Integer.valueOf(value.toString()));
+                                    if (value instanceof Double) {
+                                        // 将 Double 转换为 int 并设置给 entity
+                                        entity.setQuantity(((Double) value).intValue());
+                                    } else {
+                                        // 如果 value 不是 Double 类型，可以在这里添加相应的错误处理逻辑
+                                        throw new IllegalArgumentException("Expected a Double, but got: " + value.getClass().getName());
+                                    }
+                                    break;
+                            }
+
+                        }
+                        reportEntityList.add(entity);
+                    }else{
+                        break;
+                    }
+                    /*
                     Map<String, Object> salesMap = new HashMap<>();
-                    if (row != null) {
+                    if (row != null && row.cellIterator().hasNext()) {
                         Iterator<Cell> iterator = row.cellIterator();
                         int i = 0;
                         while (iterator.hasNext() && i < headers.size()) {
@@ -41,15 +77,15 @@ public class ExcelReaderUtils {
                             String header = headers.get(i++);
                             Object value = getValueFromCell(cell);
                             switch (header) {
-                                case "借阅/销售":
+                                case "类型":
                                     String type = (String) value;
                                     salesMap.put(header, type);
                                     break;
-                                case "类型":
-                                    String genre = (String) value;
-                                    salesMap.put(header, genre);
+                                case "书籍分类":
+                                    String category = (String) value;
+                                    salesMap.put(header, category);
                                     break;
-                                case "汇总":
+                                case "数量":
                                     String sum = String.valueOf(value);
                                     salesMap.put(header, sum);
                                     break;
@@ -60,6 +96,7 @@ public class ExcelReaderUtils {
                     }else{
                         break;
                     }
+                    */
                 }
 
                 Row headerRow1 = sheet.getRow(rowIndex + 1);
@@ -74,42 +111,66 @@ public class ExcelReaderUtils {
                     Row row = sheet.getRow(bookRowIndex);
                     if (row != null) {
                         Iterator<Cell> iterator = row.cellIterator();
-                        BookEntity book = new BookEntity();
+                        ReportDetailsEntity entity = new ReportDetailsEntity();
                         int i = 0;
                         while (iterator.hasNext() && i < headers1.size()) {
                             Cell cell = iterator.next();
                             String header = headers1.get(i++);
                             Object value = getValueFromCell(cell);
 
-                            switch (header) {
-                                case "书籍":
-                                    book.setTitle((String) value);
-                                    break;
-                                case "作者":
-                                    book.setAuthor((String) value);
-                                    break;
-//                                case "年份":
-//                                    if (value instanceof Double) {
-//                                        Double doubleValue = (Double) value;
-//                                        // 使用 Math.round() 进行四舍五入转换
-//                                        int intValue = (int) Math.round(doubleValue);
-//                                        book.setYear(intValue);
-//                                    }
-//                                    break;
-//                                case "借阅人":
-//                                    book.setBorrower((String) value);
-//                                    break;
-//                                case "时间":
-//                                    Date javaUtilDate = dateFromExcelSerialNumber((Double) value);
-//                                    LocalDate localDate = javaUtilDate.toInstant()
+                            if (null != value && !value.toString().isEmpty()){
+                                switch (header) {
+                                    case "书籍ID":
+                                        //entity.setBookId(Long.valueOf((String) value) );
+                                        if (value instanceof Double) {
+                                            // 将 Double 转换成 long，然后包装成 Long 对象
+                                            entity.setBookId(((Double) value).longValue());
+                                        } else {
+                                            // 如果 value 不是 Double 类型，抛出异常或进行其他处理
+                                            throw new IllegalArgumentException("Expected a Double, but got: " + (value != null ? value.getClass().getName() : "null"));
+                                        }
+                                        break;
+                                    case "书名":
+                                        entity.setTitle((String) value);
+                                        break;
+                                    case "作者":
+                                        entity.setAuthor((String) value);
+                                        break;
+                                    case "ISBN":
+                                        entity.setIsbn((String) value);
+                                        break;
+                                    case "借阅/销售日期":
+                                        Date borrowSaleDate = dateFromExcelSerialNumber((Double) value);
+                                        entity.setTransactionDate(borrowSaleDate);
+                                        break;
+                                    case "应还日期":
+                                        Date dueDate = dateFromExcelSerialNumber((Double) value);
+//                                    LocalDate localDate = dueDate.toInstant()
 //                                            .atZone(ZoneId.systemDefault())
 //                                            .toLocalDate();
-//                                    book.setBorrowDate(localDate);
+//                                    entity.setBorrowDate(localDate);
 //                                    break;
+                                        entity.setDueDate(dueDate);
+                                        break;
+                                    case "剩余天数":
+                                        entity.setDaysRemaining(Integer.valueOf((String) value));
+                                        break;
+                                    case "借阅人/购买人":
+                                        entity.setUserName((String) value);
+                                        break;
+                                    case "联系方式":
+                                        entity.setContactInfo((String) value);
+                                        break;
+                                    case "类型":
+                                        entity.setTransactionType((String) value);
+                                        break;
+
+                                }
+
                             }
 
                         }
-                        books.add(book);
+                        reportDetailsEntityList.add(entity);
 
                     }
                 }
@@ -118,7 +179,7 @@ public class ExcelReaderUtils {
         }
 
 
-        return new Pair<List<Map<String, Object>>, List<BookEntity>>(list, books);
+        return new Pair<List<ReportEntity>, List<ReportDetailsEntity>>(reportEntityList,reportDetailsEntityList );
     }
 
     /**

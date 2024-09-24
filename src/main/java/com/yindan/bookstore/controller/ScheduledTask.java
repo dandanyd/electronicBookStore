@@ -1,26 +1,29 @@
 package com.yindan.bookstore.controller;
 
-import com.yindan.bookstore.service.ReportBorrowSaleService;
-import com.yindan.bookstore.service.ReportService;
+import com.jcraft.jsch.SftpException;
+import com.yindan.bookstore.constant.SftpConstant;
+import com.yindan.bookstore.stfp.file.SftpUploader;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.io.IOException;
 
 @Component
 public class ScheduledTask {
 
     @Autowired
-    ReportBorrowSaleService reportBorrowSaleService;
+    private SftpUploader sftpUploader;
 
-    @Scheduled(cron = "0 0 0 * * ?")
+
+    //每天晚上12定时执行
+   // @Scheduled(cron = "0 0 0 * * ?")
    // @Scheduled(fixedDelay = 60000)
-    public void runDailyReport() throws IOException {
-        System.out.println("zhixing");
-        // 例如，生成并发送报告
-        //TODO 替换成调用工厂实现生产excel上传
-        reportBorrowSaleService.reportDataAuto();
+    public void runDailyReport() throws IOException, SftpException {
+        //reportBorrowSaleService.reportDataAuto();
+
+        sftpUploader.uploadExeclFile(SftpConstant.REMOTE_FILE_PATH,"simple");
+
     }
 
 }

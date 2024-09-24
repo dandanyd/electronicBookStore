@@ -2,42 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yindan.bookstore.dao.ReportDao">
   <resultMap id="BaseResultMap" type="com.yindan.bookstore.entity.ReportEntity">
-    <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="report_type" jdbcType="VARCHAR" property="reportType" />
-    <result column="report_date" jdbcType="DATE" property="reportDate" />
-    <result column="total_books" jdbcType="INTEGER" property="totalBooks" />
-    <result column="total_sales" jdbcType="DECIMAL" property="totalSales" />
-    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
-    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
-  </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.yindan.bookstore.entity.ReportEntity">
-    <result column="detail" jdbcType="LONGVARCHAR" property="detail" />
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="quantity" jdbcType="INTEGER" property="quantity" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, report_type, report_date, total_books, total_sales, created_at, updated_at
+    id, type, category, quantity
   </sql>
-  <sql id="Blob_Column_List">
-    detail
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    ,
-    <include refid="Blob_Column_List" />
     from report
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from report
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.yindan.bookstore.entity.ReportEntity">
-    insert into report (id, report_type, report_date, 
-      total_books, total_sales, created_at, 
-      updated_at, detail)
-    values (#{id,jdbcType=BIGINT}, #{reportType,jdbcType=VARCHAR}, #{reportDate,jdbcType=DATE}, 
-      #{totalBooks,jdbcType=INTEGER}, #{totalSales,jdbcType=DECIMAL}, #{createdAt,jdbcType=TIMESTAMP}, 
-      #{updatedAt,jdbcType=TIMESTAMP}, #{detail,jdbcType=LONGVARCHAR})
+    insert into report (id, type, category, 
+      quantity)
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, 
+      #{quantity,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.yindan.bookstore.entity.ReportEntity">
     insert into report
@@ -45,101 +32,51 @@
       <if test="id != null">
         id,
       </if>
-      <if test="reportType != null">
-        report_type,
+      <if test="type != null">
+        type,
       </if>
-      <if test="reportDate != null">
-        report_date,
+      <if test="category != null">
+        category,
       </if>
-      <if test="totalBooks != null">
-        total_books,
-      </if>
-      <if test="totalSales != null">
-        total_sales,
-      </if>
-      <if test="createdAt != null">
-        created_at,
-      </if>
-      <if test="updatedAt != null">
-        updated_at,
-      </if>
-      <if test="detail != null">
-        detail,
+      <if test="quantity != null">
+        quantity,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=BIGINT},
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="reportType != null">
-        #{reportType,jdbcType=VARCHAR},
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
       </if>
-      <if test="reportDate != null">
-        #{reportDate,jdbcType=DATE},
+      <if test="category != null">
+        #{category,jdbcType=VARCHAR},
       </if>
-      <if test="totalBooks != null">
-        #{totalBooks,jdbcType=INTEGER},
-      </if>
-      <if test="totalSales != null">
-        #{totalSales,jdbcType=DECIMAL},
-      </if>
-      <if test="createdAt != null">
-        #{createdAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatedAt != null">
-        #{updatedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="detail != null">
-        #{detail,jdbcType=LONGVARCHAR},
+      <if test="quantity != null">
+        #{quantity,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.yindan.bookstore.entity.ReportEntity">
     update report
     <set>
-      <if test="reportType != null">
-        report_type = #{reportType,jdbcType=VARCHAR},
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
       </if>
-      <if test="reportDate != null">
-        report_date = #{reportDate,jdbcType=DATE},
+      <if test="category != null">
+        category = #{category,jdbcType=VARCHAR},
       </if>
-      <if test="totalBooks != null">
-        total_books = #{totalBooks,jdbcType=INTEGER},
-      </if>
-      <if test="totalSales != null">
-        total_sales = #{totalSales,jdbcType=DECIMAL},
-      </if>
-      <if test="createdAt != null">
-        created_at = #{createdAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updatedAt != null">
-        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
-      </if>
-      <if test="detail != null">
-        detail = #{detail,jdbcType=LONGVARCHAR},
+      <if test="quantity != null">
+        quantity = #{quantity,jdbcType=INTEGER},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
-  </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yindan.bookstore.entity.ReportEntity">
-    update report
-    set report_type = #{reportType,jdbcType=VARCHAR},
-      report_date = #{reportDate,jdbcType=DATE},
-      total_books = #{totalBooks,jdbcType=INTEGER},
-      total_sales = #{totalSales,jdbcType=DECIMAL},
-      created_at = #{createdAt,jdbcType=TIMESTAMP},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
-      detail = #{detail,jdbcType=LONGVARCHAR}
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.yindan.bookstore.entity.ReportEntity">
     update report
-    set report_type = #{reportType,jdbcType=VARCHAR},
-      report_date = #{reportDate,jdbcType=DATE},
-      total_books = #{totalBooks,jdbcType=INTEGER},
-      total_sales = #{totalSales,jdbcType=DECIMAL},
-      created_at = #{createdAt,jdbcType=TIMESTAMP},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=BIGINT}
+    set type = #{type,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR},
+      quantity = #{quantity,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

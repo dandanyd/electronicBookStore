@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yindan.bookstore.dao.ReportDetailsDao">
+  <resultMap id="BaseResultMap" type="com.yindan.bookstore.entity.ReportDetailsEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="book_id" jdbcType="BIGINT" property="bookId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="isbn" jdbcType="VARCHAR" property="isbn" />
+    <result column="transaction_date" jdbcType="DATE" property="transactionDate" />
+    <result column="due_date" jdbcType="DATE" property="dueDate" />
+    <result column="days_remaining" jdbcType="INTEGER" property="daysRemaining" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="contact_info" jdbcType="VARCHAR" property="contactInfo" />
+    <result column="transaction_type" jdbcType="VARCHAR" property="transactionType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, book_id, title, author, isbn, transaction_date, due_date, days_remaining, user_name, 
+    contact_info, transaction_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from report_details
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from report_details
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yindan.bookstore.entity.ReportDetailsEntity">
+    insert into report_details (id, book_id, title, 
+      author, isbn, transaction_date, 
+      due_date, days_remaining, user_name, 
+      contact_info, transaction_type)
+    values (#{id,jdbcType=INTEGER}, #{bookId,jdbcType=BIGINT}, #{title,jdbcType=VARCHAR}, 
+      #{author,jdbcType=VARCHAR}, #{isbn,jdbcType=VARCHAR}, #{transactionDate,jdbcType=DATE}, 
+      #{dueDate,jdbcType=DATE}, #{daysRemaining,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
+      #{contactInfo,jdbcType=VARCHAR}, #{transactionType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yindan.bookstore.entity.ReportDetailsEntity">
+    insert into report_details
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="bookId != null">
+        book_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="isbn != null">
+        isbn,
+      </if>
+      <if test="transactionDate != null">
+        transaction_date,
+      </if>
+      <if test="dueDate != null">
+        due_date,
+      </if>
+      <if test="daysRemaining != null">
+        days_remaining,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="contactInfo != null">
+        contact_info,
+      </if>
+      <if test="transactionType != null">
+        transaction_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="bookId != null">
+        #{bookId,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="isbn != null">
+        #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionDate != null">
+        #{transactionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="daysRemaining != null">
+        #{daysRemaining,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactInfo != null">
+        #{contactInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionType != null">
+        #{transactionType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yindan.bookstore.entity.ReportDetailsEntity">
+    update report_details
+    <set>
+      <if test="bookId != null">
+        book_id = #{bookId,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="isbn != null">
+        isbn = #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionDate != null">
+        transaction_date = #{transactionDate,jdbcType=DATE},
+      </if>
+      <if test="dueDate != null">
+        due_date = #{dueDate,jdbcType=DATE},
+      </if>
+      <if test="daysRemaining != null">
+        days_remaining = #{daysRemaining,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="contactInfo != null">
+        contact_info = #{contactInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="transactionType != null">
+        transaction_type = #{transactionType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yindan.bookstore.entity.ReportDetailsEntity">
+    update report_details
+    set book_id = #{bookId,jdbcType=BIGINT},
+      title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      isbn = #{isbn,jdbcType=VARCHAR},
+      transaction_date = #{transactionDate,jdbcType=DATE},
+      due_date = #{dueDate,jdbcType=DATE},
+      days_remaining = #{daysRemaining,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR},
+      contact_info = #{contactInfo,jdbcType=VARCHAR},
+      transaction_type = #{transactionType,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

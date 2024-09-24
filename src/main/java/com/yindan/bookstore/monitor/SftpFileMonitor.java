@@ -1,11 +1,18 @@
 package com.yindan.bookstore.monitor;
 
 import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
 import com.yindan.bookstore.entity.BookEntity;
+import com.yindan.bookstore.entity.ReportDetailsEntity;
+import com.yindan.bookstore.entity.ReportEntity;
+import com.yindan.bookstore.service.ReportBorrowSaleService;
+import com.yindan.bookstore.stfp.manager.SftpConnectionManager;
 import com.yindan.bookstore.utils.ExcelReaderUtils;
 import javafx.util.Pair;
 import org.apache.poi.ss.usermodel.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,6 +26,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+@Component
 public class SftpFileMonitor {
 
     private final ChannelSftp  channel;
@@ -26,9 +34,16 @@ public class SftpFileMonitor {
     private Set<String> knownFiles = new HashSet<>();
     private ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
-    public SftpFileMonitor(ChannelSftp  channel, String remoteDirectory) {
-        this.channel = channel;
-        this.remoteDirectory = remoteDirectory;
+    @Autowired
+    private ReportBorrowSaleService reportBorrowSaleService;
+
+//    public SftpFileMonitor(ChannelSftp  channel, String remoteDirectory) {
+//        this.channel = channel;
+//        this.remoteDirectory = remoteDirectory;
+//    }
+    public SftpFileMonitor() throws JSchException{
+        this.channel = SftpConnectionManager.getInstance().getSftpChannel();
+        this.remoteDirectory = "/data/sftp/uftp01/upload/";
     }
 
     // 每2分钟检查一次
@@ -93,8 +108,11 @@ public class SftpFileMonitor {
     private void parseFile(File file) throws IOException {
 
         ExcelReaderUtils readerService = new ExcelReaderUtils();
-        Pair<List<Map<String, Object>>, List<BookEntity>> result = readerService.readExcel(file.getAbsolutePath());
+        Pair<List<ReportEntity>, List<ReportDetailsEntity>> result = readerService.readExcel(file.getAbsolutePath());
         //TODO 解析result传入数据库未完成
+        reportBorrowSaleService.addReport(result.getKey(),result.getValue());
+        System.out.println("操作完成");
+
 
         // 这里是解析文件的逻辑
         // 示例：打印文件内容
