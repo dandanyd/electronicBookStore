@@ -4,6 +4,6 @@ import java.math.BigDecimal;
 
 public interface SalesRecordService {
 
-    int salesBook(Long bookId, Long userId, BigDecimal price, int quantity, int discount);
+    int salesBook(String isbn, Long userId, BigDecimal price, int quantity, int discount);
 
 }

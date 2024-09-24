@@ -32,9 +32,6 @@ public class ReportBorrowSaleServiceImpl implements ReportBorrowSaleService {
     private BorrowingDao borrowingDao;
 
     @Autowired
-    private SftpConnectionManager sftpManager;
-
-    @Autowired
     private ReportDao reportDao;
 
     @Autowired
@@ -164,6 +161,7 @@ public class ReportBorrowSaleServiceImpl implements ReportBorrowSaleService {
     }
 
 
+    /*
     public void reportDataAuto() throws IOException {
         ChannelSftp channel = sftpManager.getSftpChannel();
 
@@ -283,6 +281,8 @@ public class ReportBorrowSaleServiceImpl implements ReportBorrowSaleService {
         }
 
     }
+
+     */
 
     public void addReport(List<ReportEntity> reportEntities, List<ReportDetailsEntity> reportDetailsEntityList){
         for (ReportEntity reportEntity : reportEntities) {

@@ -194,10 +194,26 @@ var page = {
 
     saleWin: function () {
         var selRow = page.bookGrid.getSelected();
-        page.bookId = selRow.id;
         if (selRow){
-            page.win5.show();
-            page.buy_bookId.setValue(selRow.isbn);
+            //page.win5.show();
+            //page.buy_bookId.setValue(selRow.isbn);
+            $.ajax({
+                url: '/api/salesRecord/create',
+                type: 'POST',
+               // contentType: 'application/json',
+                data: {
+                    bookId:selRow.isbn,
+                    title:selRow.title,
+                    price:selRow.price
+                },
+                success: function(response) {
+                    //跳转到支付页面
+                    window.location.href = response;
+                },
+                error: function(error) {
+                    console.error('Error submitting form:', error);
+                }
+            });
         }else{
             mini.alert("请选择需要购买的书籍！");
             return;
@@ -205,20 +221,7 @@ var page = {
     },
 
     buyData: function () {
-        $.ajax({
-            url: '/api/',
-            type: 'POST',
-            data: {
 
-            },
-            success: function(response) {
-                //跳转到支付页面
-                window.location.href = response.paymentUrl;
-            },
-            error: function(error) {
-                console.error('Error submitting form:', error);
-            }
-        });
     }
 
 

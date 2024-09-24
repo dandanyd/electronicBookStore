@@ -12,7 +12,7 @@ public interface ReportBorrowSaleService{
 
     void reportData(HttpServletResponse response);
 
-    void reportDataAuto() throws IOException;
+   // void reportDataAuto() throws IOException;
 
     void addReport(List<ReportEntity> reportEntities, List<ReportDetailsEntity> reportDetailsEntityList);
 

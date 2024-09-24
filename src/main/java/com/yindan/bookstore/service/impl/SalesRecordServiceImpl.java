@@ -32,7 +32,13 @@ public class SalesRecordServiceImpl implements SalesRecordService {
     //销售书籍
     @Transactional
     @Override
-    public int salesBook(Long bookId, Long userId, BigDecimal price, int quantity, int discount) {
+    public int salesBook(String isbn, Long userId, BigDecimal price, int quantity, int discount) {
+
+        BookEntity entity = bookDao.selectByIsbn(isbn);
+        if (null == entity){
+            return 0;
+        }
+        Long bookId = entity.getId();
 
         //扣减书籍库存
         //如果有折扣就是借阅过的书籍，没有就是购买的新书
@@ -70,15 +76,20 @@ public class SalesRecordServiceImpl implements SalesRecordService {
         }
 
         //计算销售出去的总价
-        BigDecimal totalPrice =  price.multiply(new BigDecimal(quantity)).multiply(new BigDecimal(discount/10));
-        BigDecimal sumPrice = totalPrice.divide(BigDecimal.valueOf(10), 2, BigDecimal.ROUND_HALF_UP);
+        //BigDecimal totalPrice =  price.multiply(new BigDecimal(quantity)).multiply(new BigDecimal(discount/10));
+        //BigDecimal sumPrice = totalPrice.divide(BigDecimal.valueOf(10), 2, BigDecimal.ROUND_HALF_UP);
+        // 将 discount 转换为 BigDecimal，并除以 100
+        BigDecimal discountFactor = new BigDecimal(discount).divide(new BigDecimal(10), 2, BigDecimal.ROUND_HALF_UP);
+
+        // 计算总价
+        BigDecimal totalPrice = price.multiply(new BigDecimal(quantity)).multiply(discountFactor);
 
         SalesRecordEntity salesRecordEntity = new SalesRecordEntity();
         salesRecordEntity.setBookId(bookId);
         salesRecordEntity.setUserId(userId);
         salesRecordEntity.setQuantity(quantity);
         salesRecordEntity.setSaleDate(new Date());
-        salesRecordEntity.setTotalPrice(sumPrice);
+        salesRecordEntity.setTotalPrice(totalPrice);
         salesRecordEntity.setCreatedAt(new Date());
 
         //记录销售数据

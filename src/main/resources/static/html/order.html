@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html" lang="zh-CN">
+<head>
+    <title>购买书籍</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9;IE=8;IE=7;IE=6;IE=EDGE"/>
+    <link href="../lib/nui/themes/default/miniui.css" rel="stylesheet" type="text/css"/>
+    <script src="../lib/nui/jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="../js/boot.js" type="text/javascript"></script>
+    <script src="../js/date-util.js" type="text/javascript"></script>
+    <script src="../lib/jquery/jquery.form.js" type="text/javascript"></script>
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="mini-fit">
+
+    <h1>
+        <label>书籍编码 </label><input id="buy_bookId" class=" mini-textbox"/><br/>
+        <label>书名 </label><input id="buy_title" class=" mini-textbox"/><br/>
+        <label>购买人 </label><input id="buy_userName" class=" mini-textbox"/><br/>
+        <label>价格 </label><input id="buy_price" class=" mini-textbox"/><br/>
+        <label>折扣 </label>
+        <div id="buy_discount" class="mini-radiobuttonlist" repeatItems="2" repeatLayout="table" repeatDirection="vertical"
+             textField="text" valueField="id" value="10"
+             data=" [{ id: 10, text: '全新' },{ id: 9, text: '9折' },{ id: 8, text: '8折' },{ id: 7, text: '7折' },{ id: 6, text: '6折' },{ id: 5, text: '5折' },
+             {id: 4, text: '4折' },{ id: 3, text: '3折' },{ id: 2, text: '2折' },{ id: 1, text: '1折' }]" >
+        </div> <br/>
+        <label>数量 </label><input id="buy_quantity" name="buy_quantity" class="mini-spinner" minValue="0" maxValue="9999" required="true" /><br/>
+        <button id="btnBuyWin" class="mini-button" onclick="onBuy">购买</button>
+        <button id="btnShareBuy" class="mini-button" onclick="onBuyShare()">分享购买链接</button>
+    </h1>
+
+</div>
+
+</body>
+<script type="text/javascript" src="../js/common.js"></script>
+<script type="text/javascript">
+    mini.parse();
+
+    var bookId = mini.get("buy_bookId");
+    var buy_title = mini.get("buy_title");
+    var userName = mini.get("buy_userName");
+    var quantity = mini.get("buy_quantity");
+    var price = mini.get("buy_price");
+    var discount = mini.get("buy_discount");
+    var btnShareBuy = mini.get("btnShareBuy");
+
+    // 获取当前页面的 URL 查询参数
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // 获取单个参数
+    bookId.setValue(urlParams.get('bookId'))
+    buy_title.setValue(urlParams.get('title'))
+    price.setValue(urlParams.get('price'))
+    var flag = urlParams.get("flag");
+    if (flag == 0){
+        btnShareBuy.setVisible(false);
+        userName.setValue(urlParams.get('userName'));
+        quantity.setValue(urlParams.get('quantity'));
+
+        bookId.setEnabled(false);
+        buy_title.setEnabled(false);
+        userName.setEnabled(false);
+        quantity.setEnabled(false);
+        price.setEnabled(false);
+        discount.setEnabled(false);
+    }
+
+
+    function onBuy() {
+        $.ajax({
+            url: '/api/salesRecord/salesBook',
+            type: 'POST',
+            data: {
+                isbn:bookId.getValue(),
+                userId:userName.getValue(),
+                price:price.getValue(),
+                quantity:quantity.getValue(),
+                discount:discount.getValue()
+            },
+            success: function(response) {
+                if(response == 0){
+                    alert("购买失败！");
+                }else {
+                    alert("购买成功！");
+                }
+            },
+            error: function(error) {
+                console.error('Error submitting form:', error);
+            }
+        });
+    }
+
+    function onBuyShare(){
+        var jumpLink = "http://localhost:9090/html/order.html?bookId="+bookId.getValue()+"&title="+buy_title.getValue()+"&price="+price.getValue()+"&flag=0"
+        +"&userName="+userName.getValue()+"&quantity="+quantity.getValue();
+        alert(jumpLink);
+    }
+
+</script>
+
+</html>
