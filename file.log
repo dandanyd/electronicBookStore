@@ -4322,3 +4322,96 @@ java.lang.NullPointerException: null
 2024-09-25 17:13:48,244 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
 2024-09-25 17:13:48,300 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
 2024-09-25 17:13:48,328 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:14:51,587 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:14:51,635 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:14:51,656 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:15:54,622 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:15:54,662 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:15:54,686 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:16:57,612 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:16:57,660 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:16:57,685 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:18:01,189 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:18:01,245 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:18:01,271 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:19:04,607 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:19:04,664 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:19:04,690 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:20:08,113 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:20:08,166 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:20:08,194 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:21:11,681 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:21:11,738 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:21:11,766 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:22:15,179 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:22:15,239 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:22:15,268 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:23:18,740 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:23:18,790 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:23:18,827 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:24:22,247 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:24:22,301 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:24:22,362 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:25:25,780 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:25:25,837 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:25:25,865 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:26:29,249 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:26:29,303 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:26:29,330 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:27:32,848 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 172.20.10.2:22
+2024-09-25 17:27:32,900 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 17:27:32,929 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 17:28:31,710 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskScheduler [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'taskScheduler'
+2024-09-25 17:28:31,713 INFO [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-25 17:28:31,716 INFO [SpringContextShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:601] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-25 17:28:31,720 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2024-09-25 17:28:31,727 INFO [SpringContextShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2024-09-25 21:24:57,466 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:55] Starting BookstoreApplication on yindandans-MBP.bbrouter with PID 21025 (/Users/yindandan/Desktop/electronicBookStore/target/classes started by yindandan in /Users/yindandan/Desktop/electronicBookStore)
+2024-09-25 21:24:57,469 INFO [restartedMain] c.y.b.BookstoreApplication [SpringApplication.java:648] No active profile set, falling back to default profiles: default
+2024-09-25 21:24:57,515 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-09-25 21:24:57,516 INFO [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor [DeferredLog.java:225] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-09-25 21:24:58,187 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:127] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-25 21:24:58,214 INFO [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:187] Finished Spring Data repository scanning in 17ms. Found 0 JPA repository interfaces.
+2024-09-25 21:24:58,764 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 9091 (http)
+2024-09-25 21:24:58,772 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-9091"]
+2024-09-25 21:24:58,773 INFO [restartedMain] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2024-09-25 21:24:58,773 INFO [restartedMain] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.46]
+2024-09-25 21:24:58,848 INFO [restartedMain] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2024-09-25 21:24:58,848 INFO [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:285] Root WebApplicationContext: initialization completed in 1332 ms
+2024-09-25 21:24:59,006 INFO [restartedMain] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2024-09-25 21:24:59,168 INFO [restartedMain] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2024-09-25 21:24:59,285 INFO [restartedMain] o.h.j.i.u.LogHelper [LogHelper.java:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-25 21:24:59,346 INFO [restartedMain] o.h.Version [Version.java:44] HHH000412: Hibernate ORM core version 5.4.32.Final
+2024-09-25 21:24:59,458 INFO [restartedMain] o.h.a.c.Version [JavaReflectionManager.java:56] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-09-25 21:24:59,581 INFO [restartedMain] o.h.d.Dialect [Dialect.java:175] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2024-09-25 21:24:59,784 INFO [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator [JtaPlatformInitiator.java:52] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-09-25 21:24:59,799 INFO [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:419] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-25 21:25:05,919 INFO [restartedMain] FILE [SftpConnectionManager.java:105] SFTP session connected to 192.168.1.10:22
+2024-09-25 21:25:05,988 INFO [restartedMain] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 21:25:05,989 INFO [restartedMain] FILE [SftpFileMonitor.java:62] SftpFileMonitor initialized. Remote directory: /data/sftp/uftp01/upload/
+2024-09-25 21:25:06,191 INFO [restartedMain] FILE [SftpFileMonitor.java:67] Starting file monitoring. Checking every 2 minutes.
+2024-09-25 21:25:06,392 INFO [pool-1-thread-1] FILE [SftpFileMonitor.java:104] New file detected: tempExcel5543023732883254419.xlsx. Updating timestamp to: 1727227770000
+2024-09-25 21:25:06,921 WARN [restartedMain] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [JpaBaseConfiguration.java:220] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-25 21:25:08,463 INFO [restartedMain] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'applicationTaskExecutor'
+2024-09-25 21:25:09,450 INFO [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:53] Adding welcome page: class path resource [static/index.html]
+2024-09-25 21:25:10,801 INFO [restartedMain] o.s.s.c.ThreadPoolTaskScheduler [ExecutorConfigurationSupport.java:181] Initializing ExecutorService 'taskScheduler'
+2024-09-25 21:25:11,516 INFO [restartedMain] o.s.b.d.a.OptionalLiveReloadServer [OptionalLiveReloadServer.java:58] LiveReload server is running on port 35729
+2024-09-25 21:25:11,802 INFO [restartedMain] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-9091"]
+2024-09-25 21:25:11,895 INFO [restartedMain] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 9091 (http) with context path ''
+2024-09-25 21:25:12,034 INFO [restartedMain] c.y.b.BookstoreApplication [StartupInfoLogger.java:61] Started BookstoreApplication in 14.876 seconds (JVM running for 16.705)
+2024-09-25 21:25:14,851 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 192.168.1.10:22
+2024-09-25 21:25:14,903 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 21:25:17,868 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 21:25:22,827 INFO [scheduling-1] FILE [SimpleUploadStrategy.java:62] Excel file uploaded successfully: /var/folders/8r/2wvhzb5d0mz4ggrxl86649280000gn/T/tempExcel1894884298075257200.xlsx
+2024-09-25 21:25:25,708 INFO [http-nio-9091-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-09-25 21:25:25,709 INFO [http-nio-9091-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2024-09-25 21:25:25,779 INFO [http-nio-9091-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 69 ms
+2024-09-25 21:26:25,168 INFO [scheduling-1] FILE [SftpConnectionManager.java:105] SFTP session connected to 192.168.1.10:22
+2024-09-25 21:26:25,219 INFO [scheduling-1] FILE [SftpConnectionManager.java:110] SFTP channel opened successfully.
+2024-09-25 21:26:25,244 WARN [scheduling-1] o.a.p.x.u.XSSFWorkbook [XSSFWorkbook.java:905] Sheet '2024-09-25 Daily Summary and Details' will be added with a trimmed name '2024-09-25 Daily Summary and De' for MS Excel compliance.
+2024-09-25 21:26:26,165 INFO [scheduling-1] FILE [SimpleUploadStrategy.java:62] Excel file uploaded successfully: /var/folders/8r/2wvhzb5d0mz4ggrxl86649280000gn/T/tempExcel7049980371902323800.xlsx
+2024-09-25 21:27:05,798 INFO [Thread-34] o.s.s.c.ThreadPoolTaskScheduler [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'taskScheduler'
+2024-09-25 21:27:05,826 INFO [Thread-34] o.s.s.c.ThreadPoolTaskExecutor [ExecutorConfigurationSupport.java:218] Shutting down ExecutorService 'applicationTaskExecutor'
+2024-09-25 21:27:05,859 INFO [Thread-34] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:601] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-25 21:27:05,898 INFO [Thread-34] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2024-09-25 21:27:05,940 INFO [Thread-34] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.

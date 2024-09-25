@@ -14,6 +14,8 @@ import com.yindan.bookstore.stfp.manager.SftpConnectionManager;
 import com.yindan.bookstore.utils.ExcelReaderUtils;
 import javafx.util.Pair;
 import org.apache.poi.ss.usermodel.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -39,6 +41,8 @@ public class SftpFileMonitor {
 
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+    private static final Logger logger = LoggerFactory.getLogger("FILE");
+
     @Autowired
     private ReportBorrowSaleService reportBorrowSaleService;
 
@@ -55,15 +59,18 @@ public class SftpFileMonitor {
     public SftpFileMonitor() throws JSchException{
         this.channel = SftpConnectionManager.getInstance().getSftpChannel();
         this.remoteDirectory = "/data/sftp/uftp01/upload/";
+        logger.info("SftpFileMonitor initialized. Remote directory: {}", remoteDirectory);
     }
 
     // 每2分钟检查一次
     public void startMonitoring() {
+        logger.info("Starting file monitoring. Checking every 2 minutes.");
         executor.scheduleAtFixedRate(this::checkForNewFiles, 0, 2 * 60, TimeUnit.SECONDS);
     }
 
     private void checkForNewFiles() {
         try {
+            logger.debug("Checking for new files in directory: {}", remoteDirectory);
             List<ChannelSftp.LsEntry> files = channel.ls(remoteDirectory);
             List<ChannelSftp.LsEntry> fileList = new ArrayList<>();
             for (ChannelSftp.LsEntry file : files) {
@@ -75,6 +82,7 @@ public class SftpFileMonitor {
                 fileList.add(file);
             }
             Long lastestTime = lastCheckTimestampDao.getLastestTime();
+            logger.debug("Last checked timestamp: {}", lastestTime);
             // 使用stream API和filter来过滤出文件，并通过max方法找到最新的那个
             Optional<ChannelSftp.LsEntry> max = fileList.stream()
                     .max(Comparator.comparingLong(entry -> entry.getAttrs().getMTime()));
@@ -88,20 +96,21 @@ public class SftpFileMonitor {
             }).orElse(null);
 
             if (lastestTime == null){
+                logger.info("No previous timestamp found. Inserting new timestamp: {}", fileTime);
                 lastCheckTimestampDao.insert(fileTime);
                 handleNewFile(fileName);
             }else {
                 if (lastestTime < fileTime){
+                    logger.info("New file detected: {}. Updating timestamp to: {}", fileName, fileTime);
                     lastCheckTimestampDao.updateTime(fileTime);
                     handleNewFile(fileName);
+                }else {
+                    logger.debug("No new files detected since the last check.");
                 }
             }
 
-
-//            Optional<String> s = fileList.stream()
-//                    .max(Comparator.comparingLong(entry -> entry.getAttrs().getMTime()))
-//                    .map(ChannelSftp.LsEntry::getFilename);// 提取文件名
         } catch (SftpException e) {
+            logger.error("Error while checking for new files: {}", e.getMessage(), e);
             e.printStackTrace();
         }
     }
@@ -132,9 +141,7 @@ public class SftpFileMonitor {
     }*/
 
     private void handleNewFile(String fileName) {
-        // 在这里处理新文件
-        // 例如：下载文件、解析文件等
-        System.out.println("处理新文件：" + fileName);
+        logger.info("Handling new file: {}", fileName);
         // 下载文件并解析
         downloadAndParseFile(fileName);
     }
@@ -143,6 +150,7 @@ public class SftpFileMonitor {
         String remoteFilePath = remoteDirectory + "/" + fileName;
 
         try {
+            logger.info("Downloading file: {} from remote path: {}", fileName, remoteFilePath);
             // 创建临时文件
             File tempFile = File.createTempFile("tempExcel", ".xlsx");
             tempFile.deleteOnExit(); // 确保在JVM退出时删除临时文件
@@ -150,7 +158,7 @@ public class SftpFileMonitor {
             // 下载文件到临时文件
             channel.get(remoteFilePath, new FileOutputStream(tempFile));
             System.out.println("文件已成功下载至临时路径：" + tempFile.getAbsolutePath());
-
+            logger.info("File downloaded to temporary path: {}", tempFile.getAbsolutePath());
             // 解析文件
             parseFile(tempFile,fileName);
 
@@ -158,8 +166,10 @@ public class SftpFileMonitor {
             if (tempFile != null && tempFile.exists()) {
                 tempFile.delete();
                 System.out.println("临时文件已删除：" + tempFile.getAbsolutePath());
+                logger.info("Temporary file deleted: {}", tempFile.getAbsolutePath());
             }
         } catch (IOException | SftpException e) {
+            logger.error("Error while downloading and parsing file: {}", e.getMessage(), e);
             e.printStackTrace();
         }
     }

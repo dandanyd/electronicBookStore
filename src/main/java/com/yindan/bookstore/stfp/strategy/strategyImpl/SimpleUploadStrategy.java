@@ -8,6 +8,8 @@ import com.yindan.bookstore.dto.ReportDto;
 import com.yindan.bookstore.stfp.strategy.Strategy;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,35 +21,8 @@ import java.util.List;
 @Component
 public class SimpleUploadStrategy implements Strategy {
 
-    @Autowired
-    private BorrowingDao borrowingDao;
-  /*  @Override
-    public void upload(ChannelSftp channel, File file, String remotePath) throws IOException, SftpException {
-        // 尝试打开文件输入流
-        FileInputStream fis = null;
-        try {
-            fis = new FileInputStream(file);
+    private static final Logger logger = LoggerFactory.getLogger("FILE");
 
-            // 使用 SFTP 通道上传文件
-            channel.put(fis, remotePath + "/" + file.getName());
-        } catch (FileNotFoundException e) {
-            System.err.println("File not found: " + file.getPath());
-            e.printStackTrace();
-        } catch (SftpException e) {
-            System.err.println("Error uploading file to SFTP server.");
-            e.printStackTrace();
-        } finally {
-            if (fis != null) {
-                try {
-                    fis.close();
-                } catch (IOException e) {
-                    System.err.println("Error closing file input stream.");
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-*/
     @Override
     public void execute(ChannelSftp channel, File file, String remoteFilePath) throws SftpException {
         // 尝试打开文件输入流
@@ -58,17 +33,21 @@ public class SimpleUploadStrategy implements Strategy {
             // 使用 SFTP 通道上传文件
             channel.put(fis, remoteFilePath + "/" + file.getName());
         } catch (FileNotFoundException e) {
-            System.err.println("File not found: " + file.getPath());
+            //System.err.println("File not found: " + file.getPath());
+            logger.error("File not found: {}", file.getPath(), e);
             e.printStackTrace();
         } catch (SftpException e) {
-            System.err.println("Error uploading file to SFTP server.");
+            //System.err.println("Error uploading file to SFTP server.");
+            logger.error("Error uploading file to SFTP server: {}", file.getPath(), e);
             e.printStackTrace();
         } finally {
             if (fis != null) {
                 try {
                     fis.close();
+                    logger.debug("File input stream closed for file: {}", file.getPath());
                 } catch (IOException e) {
-                    System.err.println("Error closing file input stream.");
+                    //System.err.println("Error closing file input stream.");
+                    logger.error("Error closing file input stream for file: {}", file.getPath(), e);
                     e.printStackTrace();
                 }
             }
@@ -78,7 +57,12 @@ public class SimpleUploadStrategy implements Strategy {
     @Override
     public void excelSftpexecute(ChannelSftp channel, String localFilePath, String remoteFilePath,List<ReportDto> reports ,List<ReportDetailsDto> reportDetails) throws SftpException, IOException {
         generateExcelFile(localFilePath,reports,reportDetails);
-        channel.put(localFilePath, remoteFilePath);
+        try {
+            channel.put(localFilePath, remoteFilePath);
+            logger.info("Excel file uploaded successfully: {}", localFilePath);
+        } catch (SftpException e) {
+            logger.error("Error uploading Excel file to SFTP server: {}", localFilePath, e);
+        }
     }
 
     @Override
@@ -195,11 +179,15 @@ public class SimpleUploadStrategy implements Strategy {
         // 写入Excel文件
         try (FileOutputStream outputStream = new FileOutputStream(filePath)) {
             workbook.write(outputStream);
-            workbook.close();
         } catch (FileNotFoundException e) {
+            logger.error("File not found while writing Excel file: {}", filePath, e);
             e.printStackTrace();
         } catch (IOException e) {
+            logger.error("Error writing Excel file: {}", filePath, e);
             e.printStackTrace();
+        }finally {
+            workbook.close();
+            logger.debug("Workbook closed for file: {}", filePath);
         }
 
     }

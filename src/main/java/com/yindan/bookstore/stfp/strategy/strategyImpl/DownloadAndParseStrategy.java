@@ -6,12 +6,16 @@ import com.yindan.bookstore.dto.ReportDetailsDto;
 import com.yindan.bookstore.dto.ReportDto;
 import com.yindan.bookstore.stfp.strategy.Strategy;
 import org.apache.poi.ss.usermodel.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.util.List;
 
 public class DownloadAndParseStrategy implements Strategy {
+
+    private static final Logger logger = LoggerFactory.getLogger("FILE");
 
     private void parseFileContent(File file) {
         try (BufferedReader reader = Files.newBufferedReader(file.toPath())) {
@@ -20,6 +24,7 @@ public class DownloadAndParseStrategy implements Strategy {
                 System.out.println(line); // 打印每一行的内容
             }
         } catch (IOException e) {
+            logger.error("Failed to read file content: {}", file.getAbsolutePath(), e);
             e.printStackTrace();
             throw new RuntimeException("Failed to read file content.", e);
         }
@@ -59,6 +64,7 @@ public class DownloadAndParseStrategy implements Strategy {
                 System.out.println("------------------------");
             }
         } catch (IOException e) {
+            logger.error("Failed to read file content: {}", tempFile.getAbsolutePath(), e);
             e.printStackTrace();
             throw new RuntimeException("Failed to read file content.", e);
         }
@@ -85,6 +91,7 @@ public class DownloadAndParseStrategy implements Strategy {
             tempFile = File.createTempFile("temp-", ".tmp");
             tempFile.deleteOnExit(); // 确保在JVM退出时删除临时文件
         } catch (IOException e) {
+            logger.error("Failed to create temporary file", e);
             e.printStackTrace();
             throw new RuntimeException("Failed to create temporary file", e);
         }
@@ -93,13 +100,13 @@ public class DownloadAndParseStrategy implements Strategy {
             channel.get(remoteFilePath, fos);
             System.out.println("文件已成功下载至临时路径：" + tempFile.getAbsolutePath());
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            logger.error("Failed to find temporary file: {}", tempFile.getAbsolutePath(), e);
             throw new RuntimeException("Failed to find temporary file", e);
         } catch (SftpException e) {
-            e.printStackTrace();
+            logger.error("Failed to download file from SFTP: {}", remoteFilePath, e);
             throw new RuntimeException("Failed to download file from SFTP: " + remoteFilePath, e);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("IO Exception occurred while downloading file: {}", remoteFilePath, e);
             throw new RuntimeException("IO Exception occurred", e);
         }
         parseExcelFileContent(tempFile);
@@ -157,8 +164,6 @@ public class DownloadAndParseStrategy implements Strategy {
             e.printStackTrace();
             throw new RuntimeException("Failed to download file from SFTP: " + remoteFilePath, e);
         } finally {
-            // 断开连接
-            // 注意：如果连接管理器负责多个连接，这里可能不需要每次都断开连接
             // manager.closeConnection();
         }
     }
