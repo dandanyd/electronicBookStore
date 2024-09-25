@@ -1,5 +1,6 @@
 package com.yindan.bookstore.controller;
 
+import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
 import com.yindan.bookstore.constant.SftpConstant;
 import com.yindan.bookstore.dto.ReportDetailsDto;
@@ -27,8 +28,8 @@ public class ScheduledTask {
 
     //每天晚上12定时执行
    // @Scheduled(cron = "0 0 0 * * ?")
-    //@Scheduled(fixedDelay = 60000)
-    public void runDailyReport() throws IOException, SftpException {
+    @Scheduled(fixedDelay = 60000)
+    public void runDailyReport() throws IOException, SftpException, JSchException {
         //reportBorrowSaleService.reportDataAuto();
 
 

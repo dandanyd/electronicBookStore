@@ -78,11 +78,7 @@ public class SimpleUploadStrategy implements Strategy {
     @Override
     public void excelSftpexecute(ChannelSftp channel, String localFilePath, String remoteFilePath,List<ReportDto> reports ,List<ReportDetailsDto> reportDetails) throws SftpException, IOException {
         generateExcelFile(localFilePath,reports,reportDetails);
-        try {
-            channel.put(localFilePath, remoteFilePath);
-        } finally {
-            //channel.disconnect();
-        }
+        channel.put(localFilePath, remoteFilePath);
     }
 
     @Override

@@ -30,7 +30,7 @@ public class SftpController {
     @PostMapping("/upload")
     public String uploadFile(@RequestParam("localFilePath") String localFilePath,
                              @RequestParam("remoteFilePath") String remoteFilePath,
-                             @RequestParam(value = "strategyType", defaultValue = "simple") String strategyType) throws SftpException {
+                             @RequestParam(value = "strategyType", defaultValue = "simple") String strategyType) throws SftpException, JSchException {
         localFilePath = "/Users/yindandan/Desktop/renren/daily_report.xlsx";
         remoteFilePath = "/data/sftp/uftp01/upload/";
         strategyType = "simple";

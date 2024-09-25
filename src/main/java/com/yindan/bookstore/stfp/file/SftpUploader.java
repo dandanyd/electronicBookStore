@@ -29,7 +29,7 @@ public class SftpUploader {
     }
 
     //上传sftp
-    public void uploadFile(String localFilePath, String remoteFilePath, String strategyType) throws SftpException {
+    public void uploadFile(String localFilePath, String remoteFilePath, String strategyType) throws SftpException, JSchException {
         File file = new File(localFilePath);
         if (!file.exists()) {
             System.err.println("File not found: " + localFilePath);
@@ -55,7 +55,7 @@ public class SftpUploader {
         }
     }
 
-    public void uploadExeclFile(String remoteFilePath, String strategyType, List<ReportDto> reports , List<ReportDetailsDto> reportDetails) throws IOException, SftpException {
+    public void uploadExeclFile(String remoteFilePath, String strategyType, List<ReportDto> reports , List<ReportDetailsDto> reportDetails) throws IOException, SftpException, JSchException {
         //临时文件
         File tempFile = File.createTempFile("tempExcel", ".xlsx");
         String filePath = tempFile.getAbsolutePath();
@@ -83,7 +83,7 @@ public class SftpUploader {
 
 
     //下载并解析文件
-    public void downloadFile(String remoteFilePath, String localFilePath,String strategyType) throws SftpException {
+    public void downloadFile(String remoteFilePath, String localFilePath,String strategyType) throws SftpException, JSchException {
 
         //sftp管理
 //        SftpConnectionManager manager = SftpConnectionManager.getInstance();
@@ -128,7 +128,7 @@ public class SftpUploader {
     }
 
 
-    public void downloadExcelAndParseFile(String remoteFilePath, String strategyType) throws SftpException {
+    public void downloadExcelAndParseFile(String remoteFilePath, String strategyType) throws SftpException, JSchException {
         //sftp管理
 //        SftpConnectionManager manager = SftpConnectionManager.getInstance();
 //        ChannelSftp channel = manager.getSftpChannel();

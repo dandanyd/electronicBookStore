@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yindan.bookstore.dao.LastCheckTimestampDao">
+  <resultMap id="BaseResultMap" type="com.yindan.bookstore.entity.LastCheckTimestampEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="enter_time" jdbcType="BIGINT" property="enterTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, enter_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from last_check_timestamp
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="getLastestTime" resultType="java.lang.Long">
+   SELECT enter_time
+    FROM last_check_timestamp
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from last_check_timestamp
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="java.lang.Long">
+    insert into last_check_timestamp ( enter_time)
+    values ( #{enterTime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yindan.bookstore.entity.LastCheckTimestampEntity">
+    insert into last_check_timestamp
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="enterTime != null">
+        enter_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="enterTime != null">
+        #{enterTime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateTime" parameterType="java.lang.Long">
+    update last_check_timestamp
+    <set>
+      <if test="enterTime != null">
+        enter_time = #{enterTime,jdbcType=BIGINT},
+      </if>
+    </set>
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yindan.bookstore.entity.LastCheckTimestampEntity">
+    update last_check_timestamp
+    set enter_time = #{enterTime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
