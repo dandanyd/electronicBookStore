@@ -2,11 +2,14 @@ package com.yindan.bookstore.stfp.strategy.strategyImpl;
 
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.SftpException;
+import com.yindan.bookstore.dto.ReportDetailsDto;
+import com.yindan.bookstore.dto.ReportDto;
 import com.yindan.bookstore.stfp.strategy.Strategy;
 import org.apache.poi.ss.usermodel.*;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.List;
 
 public class DownloadAndParseStrategy implements Strategy {
 
@@ -71,7 +74,7 @@ public class DownloadAndParseStrategy implements Strategy {
     }
 
     @Override
-    public void excelSftpexecute(ChannelSftp channel, String localFilePath, String remoteFilePath) throws SftpException, IOException {
+    public void excelSftpexecute(ChannelSftp channel, String localFilePath, String remoteFilePath, List<ReportDto> reports , List<ReportDetailsDto> reportDetails) throws SftpException, IOException {
 
     }
 

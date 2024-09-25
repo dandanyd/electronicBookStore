@@ -36,6 +36,11 @@ var page = {
         this.btnSale = mini.get("btnSale");
         this.btnLog = mini.get("btnLog");
         this.btnExcel = mini.get("btnExcel");
+
+        this.title = mini.get("title");
+        this.author = mini.get("author");
+        this.category = mini.get("category");
+
         //弹出窗口的按钮
         this.add_submitButton = mini.get("add_submitButton");
         this.btnBorrowWin = mini.get("btnBorrowWin");
@@ -85,7 +90,7 @@ var page = {
 
     },
     searchData: function () {
-        this.bookGrid.load();
+        this.bookGrid.load({title:this.title.getValue(),author:this.author.getValue(),category:this.category.getValue()});
     },
     insertData: function () {
         this.win1.show();

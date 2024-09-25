@@ -3,9 +3,11 @@ package com.yindan.bookstore.monitor;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
+import com.yindan.bookstore.dao.ReportTitleDao;
 import com.yindan.bookstore.entity.BookEntity;
 import com.yindan.bookstore.entity.ReportDetailsEntity;
 import com.yindan.bookstore.entity.ReportEntity;
+import com.yindan.bookstore.entity.ReportTitleEntity;
 import com.yindan.bookstore.service.ReportBorrowSaleService;
 import com.yindan.bookstore.stfp.manager.SftpConnectionManager;
 import com.yindan.bookstore.utils.ExcelReaderUtils;
@@ -25,17 +27,21 @@ import java.util.Set;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @Component
 public class SftpFileMonitor {
 
     private final ChannelSftp  channel;
     private final String remoteDirectory;
-    private Set<String> knownFiles = new HashSet<>();
+    //private Set<String> knownFiles = new HashSet<>();
     private ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
     @Autowired
     private ReportBorrowSaleService reportBorrowSaleService;
+
+    @Autowired
+    private ReportTitleDao reportTitleDao;
 
 //    public SftpFileMonitor(ChannelSftp  channel, String remoteDirectory) {
 //        this.channel = channel;
@@ -51,6 +57,7 @@ public class SftpFileMonitor {
         executor.scheduleAtFixedRate(this::checkForNewFiles, 0, 2 * 60, TimeUnit.SECONDS);
     }
 
+
     private void checkForNewFiles() {
         try {
             List<ChannelSftp.LsEntry> files = channel.ls(remoteDirectory);
@@ -60,8 +67,12 @@ public class SftpFileMonitor {
                 if (".".equals(fileName) || "..".equals(fileName) || file.getAttrs().isDir()) {
                     continue;
                 }
-                if (!knownFiles.contains(fileName)) {
-                    knownFiles.add(fileName);
+                List<ReportTitleEntity> reportTitleEntities = reportTitleDao.selectAll();
+                List<String> excelNames = reportTitleEntities.stream()
+                        .map(ReportTitleEntity::getExcelname)
+                        .collect(Collectors.toList());
+                if (!excelNames.contains(fileName)) {
+                    excelNames.add(fileName);
                     System.out.println("新文件：" + fileName);
                     // 在这里可以调用其他方法处理新文件
                     handleNewFile(fileName);
@@ -93,7 +104,7 @@ public class SftpFileMonitor {
             System.out.println("文件已成功下载至临时路径：" + tempFile.getAbsolutePath());
 
             // 解析文件
-            parseFile(tempFile);
+            parseFile(tempFile,fileName);
 
             // 删除临时文件
             if (tempFile != null && tempFile.exists()) {
@@ -105,63 +116,14 @@ public class SftpFileMonitor {
         }
     }
 
-    private void parseFile(File file) throws IOException {
+    private void parseFile(File file,String fileName) throws IOException {
 
         ExcelReaderUtils readerService = new ExcelReaderUtils();
         Pair<List<ReportEntity>, List<ReportDetailsEntity>> result = readerService.readExcel(file.getAbsolutePath());
-        //TODO 解析result传入数据库未完成
+        reportTitleDao.insert(fileName);
         reportBorrowSaleService.addReport(result.getKey(),result.getValue());
         System.out.println("操作完成");
 
-
-        // 这里是解析文件的逻辑
-        // 示例：打印文件内容
-       /* try (BufferedReader reader = Files.newBufferedReader(file.toPath(), StandardCharsets.UTF_8)) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line); // 打印每一行的内容
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to read file content.", e);
-        }*/
-        try (FileInputStream fis = new FileInputStream(file)) {
-/*            Workbook workbook = WorkbookFactory.create(fis);
-            Sheet sheet = workbook.getSheetAt(0);
-
-            // 假设第一行为标题行
-            Row headerRow = sheet.getRow(0);
-            int lastCellNum = headerRow.getLastCellNum();
-            String[] headers = new String[lastCellNum];
-
-            for (int i = 0; i < lastCellNum; i++) {
-                headers[i] = headerRow.getCell(i).getStringCellValue();
-            }
-
-            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-                Row row = sheet.getRow(i);
-                String[] values = new String[headers.length];
-                for (int j = 0; j < headers.length; j++) {
-                    Cell cell = row.getCell(j, Row.MissingCellPolicy.RETURN_BLANK_AS_NULL);
-                    if (cell == null) {
-                        values[j] = "";
-                    } else {
-                        values[j] = cell.getStringCellValue();
-                    }
-                }
-
-                // 打印每一行的内容
-                System.out.println("Row: " + i);
-                for (int j = 0; j < headers.length; j++) {
-                    System.out.println(headers[j] + ": " + values[j]);
-                }
-                System.out.println("------------------------");
-            }*/
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to read file content.", e);
-        }
     }
 
     public void stopMonitoring() {

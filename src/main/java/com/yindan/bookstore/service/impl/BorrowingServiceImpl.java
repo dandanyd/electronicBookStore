@@ -4,6 +4,8 @@ import com.yindan.bookstore.constant.BorrowingStatus;
 import com.yindan.bookstore.dao.BookDao;
 import com.yindan.bookstore.dao.BorrowingDao;
 import com.yindan.bookstore.dao.BorrowingRecordDao;
+import com.yindan.bookstore.dto.ReportDetailsDto;
+import com.yindan.bookstore.dto.ReportDto;
 import com.yindan.bookstore.entity.BookEntity;
 import com.yindan.bookstore.entity.BorrowingEntity;
 import com.yindan.bookstore.entity.BorrowingRecordEntity;
@@ -85,7 +87,7 @@ public class BorrowingServiceImpl implements BorrowingService {
                     int counts = borrowingDao.counts();
                     Long borrowingId = Long.valueOf(counts + 1);
 
-                    borrowingEntity.setId(borrowingId);
+                    //borrowingEntity.setBo(borrowingId);
                     borrowingEntity.setBookId(bookId);
                     borrowingEntity.setUserId(userId);
                     borrowingEntity.setBorrowDate(new Date());
@@ -159,5 +161,15 @@ public class BorrowingServiceImpl implements BorrowingService {
     @Override
     public BorrowingEntity getBorrowingById(Long id) {
         return borrowingDao.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<ReportDto> reports() {
+        return borrowingDao.getReports();
+    }
+
+    @Override
+    public List<ReportDetailsDto> reportDetails() {
+        return borrowingDao.getReportDetails();
     }
 }

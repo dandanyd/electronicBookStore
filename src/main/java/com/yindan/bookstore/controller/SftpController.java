@@ -31,7 +31,7 @@ public class SftpController {
     public String uploadFile(@RequestParam("localFilePath") String localFilePath,
                              @RequestParam("remoteFilePath") String remoteFilePath,
                              @RequestParam(value = "strategyType", defaultValue = "simple") String strategyType) throws SftpException {
-        localFilePath = "C:\\Users\\45905\\Desktop\\111.txt";
+        localFilePath = "/Users/yindandan/Desktop/renren/daily_report.xlsx";
         remoteFilePath = "/data/sftp/uftp01/upload/";
         strategyType = "simple";
         sftpUploader.uploadFile(localFilePath, remoteFilePath, strategyType);

@@ -3,6 +3,8 @@ package com.yindan.bookstore.stfp.file;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.SftpException;
+import com.yindan.bookstore.dto.ReportDetailsDto;
+import com.yindan.bookstore.dto.ReportDto;
 import com.yindan.bookstore.stfp.strategy.Strategy;
 import com.yindan.bookstore.stfp.factory.UploadAndDownloadStrategyFactory;
 import com.yindan.bookstore.stfp.manager.SftpConnectionManager;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 @Component
 public class SftpUploader {
@@ -52,7 +55,7 @@ public class SftpUploader {
         }
     }
 
-    public void uploadExeclFile(String remoteFilePath, String strategyType) throws IOException, SftpException {
+    public void uploadExeclFile(String remoteFilePath, String strategyType, List<ReportDto> reports , List<ReportDetailsDto> reportDetails) throws IOException, SftpException {
         //临时文件
         File tempFile = File.createTempFile("tempExcel", ".xlsx");
         String filePath = tempFile.getAbsolutePath();
@@ -66,7 +69,7 @@ public class SftpUploader {
         Strategy strategy = strategyFactory.createUploadStrategy(strategyType);
 
         try {
-            strategy.excelSftpexecute(channel,filePath,remoteFilePath);
+            strategy.excelSftpexecute(channel,filePath,remoteFilePath,reports,reportDetails);
             //downloadStrategy.downloadAndParse(channel, localFilePath, remoteFilePath);
             System.out.println("File download successfully.");
         } catch (SftpException e) {
@@ -77,6 +80,7 @@ public class SftpUploader {
         }
 
     }
+
 
     //下载并解析文件
     public void downloadFile(String remoteFilePath, String localFilePath,String strategyType) throws SftpException {

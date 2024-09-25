@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+@Component
 public class SimpleUploadStrategy implements Strategy {
 
     @Autowired
@@ -75,12 +76,12 @@ public class SimpleUploadStrategy implements Strategy {
     }
 
     @Override
-    public void excelSftpexecute(ChannelSftp channel, String localFilePath, String remoteFilePath) throws SftpException, IOException {
-        generateExcelFile(localFilePath);
+    public void excelSftpexecute(ChannelSftp channel, String localFilePath, String remoteFilePath,List<ReportDto> reports ,List<ReportDetailsDto> reportDetails) throws SftpException, IOException {
+        generateExcelFile(localFilePath,reports,reportDetails);
         try {
             channel.put(localFilePath, remoteFilePath);
         } finally {
-            channel.disconnect();
+            //channel.disconnect();
         }
     }
 
@@ -100,7 +101,7 @@ public class SimpleUploadStrategy implements Strategy {
     }
 
     //生成excel
-    public void generateExcelFile(String filePath) throws IOException {
+    public void generateExcelFile(String filePath,List<ReportDto> reports ,List<ReportDetailsDto> reportDetails) throws IOException {
 
         Workbook workbook = new XSSFWorkbook();
 
@@ -121,8 +122,8 @@ public class SimpleUploadStrategy implements Strategy {
         redCellStyle.setFillForegroundColor(IndexedColors.YELLOW.getIndex());
         redCellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
-        List<ReportDto> reports = borrowingDao.getReports();
-        List<ReportDetailsDto> reportDetails = borrowingDao.getReportDetails();
+        //List<ReportDto> reports = borrowingDao.getReports();
+        //List<ReportDetailsDto> reportDetails = borrowingDao.getReportDetails();
 
         // 创建汇总部分
         Row headerRow = sheet.createRow(0);

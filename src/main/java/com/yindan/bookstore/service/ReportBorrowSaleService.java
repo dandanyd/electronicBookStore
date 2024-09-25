@@ -1,5 +1,7 @@
 package com.yindan.bookstore.service;
 
+import com.yindan.bookstore.dto.ReportDetailsDto;
+import com.yindan.bookstore.dto.ReportDto;
 import com.yindan.bookstore.entity.ReportDetailsEntity;
 import com.yindan.bookstore.entity.ReportEntity;
 import org.springframework.http.ResponseEntity;

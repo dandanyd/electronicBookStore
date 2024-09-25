@@ -1,8 +1,11 @@
 package com.yindan.bookstore.service;
 
+import com.yindan.bookstore.dto.ReportDetailsDto;
+import com.yindan.bookstore.dto.ReportDto;
 import com.yindan.bookstore.entity.BorrowingEntity;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 public interface BorrowingService {
@@ -37,6 +40,11 @@ public interface BorrowingService {
      * @return
      */
     BorrowingEntity getBorrowingById(Long id);
+
+
+    List<ReportDto> reports();
+
+    List<ReportDetailsDto> reportDetails();
 
 
 
